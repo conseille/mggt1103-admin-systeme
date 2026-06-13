@@ -1,0 +1,93 @@
+============================================================
+TP2 — Diagnostic performance Linux
+============================================================
+
+Date : Fri Jun 12 01:48:36 UTC 2026
+Utilisateur : vagrant
+Machine : ubuntu-jammy
+
+-------------------- Système --------------------
+Linux ubuntu-jammy 5.15.0-179-generic #189-Ubuntu SMP Tue May 5 18:20:56 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+
+-------------------- Mémoire --------------------
+               total        used        free      shared  buff/cache   available
+Mem:           957Mi       191Mi       147Mi       0.0Ki       618Mi       609Mi
+Swap:             0B          0B          0B
+
+-------------------- Disque --------------------
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs            96M  972K   95M   1% /run
+/dev/sda1        39G  1.9G   37G   5% /
+tmpfs           479M     0  479M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+vagrant         270G   97G  173G  36% /vagrant
+tmpfs            96M  4.0K   96M   1% /run/user/1000
+
+-------------------- Réseau --------------------
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp0s3           UP             10.0.2.15/24 metric 100 fe80::dc:5fff:fe02:c88d/64 
+enp0s8           UP             192.168.56.50/24 fe80::a00:27ff:fe07:e321/64 
+
+-------------------- Ports ouverts --------------------
+Netid State  Recv-Q Send-Q    Local Address:Port Peer Address:PortProcess                                                                  
+udp   UNCONN 0      0         127.0.0.53%lo:53        0.0.0.0:*    uid:101 ino:17083 sk:1 cgroup:/system.slice/systemd-resolved.service <->
+udp   UNCONN 0      0      10.0.2.15%enp0s3:68        0.0.0.0:*    uid:100 ino:19579 sk:2 cgroup:/system.slice/systemd-networkd.service <->
+tcp   LISTEN 0      4096      127.0.0.53%lo:53        0.0.0.0:*    uid:101 ino:17084 sk:3 cgroup:/system.slice/systemd-resolved.service <->
+tcp   LISTEN 0      128             0.0.0.0:22        0.0.0.0:*    ino:17947 sk:4 cgroup:/system.slice/ssh.service <->                     
+tcp   LISTEN 0      128                [::]:22           [::]:*    ino:17958 sk:5 cgroup:/system.slice/ssh.service v6only:1 <->            
+
+-------------------- Charge système --------------------
+ 01:48:36 up 21 min,  1 user,  load average: 0.08, 0.43, 0.33
+
+-------------------- Top processus CPU --------------------
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+vagrant     3027 20.0  0.3   7896  3648 pts/0    S+   01:48   0:00 bash ./02-diagnostic-performance-tp2.sh
+root        3022  1.5  0.0      0     0 ?        I    01:45   0:02 [kworker/0:0-events]
+root          17  1.0  0.0      0     0 ?        I    01:27   0:13 [kworker/0:1-cgroup_free]
+root           1  0.9  1.3 101980 13096 ?        Ss   01:27   0:12 /sbin/init
+root          13  0.6  0.0      0     0 ?        S    01:27   0:08 [ksoftirqd/0]
+root         632  0.5  3.9 1776976 38584 ?       Ssl  01:28   0:06 /snap/snapd/current/usr/lib/snapd/snapd
+root          83  0.3  0.0      0     0 ?        I<   01:27   0:03 [kworker/0:1H-kblockd]
+root        2099  0.3  0.0      0     0 ?        I    01:43   0:00 [kworker/u2:3-events_unbound]
+vagrant     1722  0.2  0.8  17476  8280 ?        S    01:32   0:02 sshd: vagrant@pts/0
+
+-------------------- Top processus mémoire --------------------
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         632  0.5  3.9 1776976 38584 ?       Ssl  01:28   0:06 /snap/snapd/current/usr/lib/snapd/snapd
+root         382  0.0  2.7 354888 27232 ?        SLsl 01:27   0:00 /sbin/multipathd -d -s
+root        2049  0.0  2.0 296028 20008 ?        Ssl  01:43   0:00 /usr/libexec/packagekitd
+root         674  0.0  2.0 110156 19684 ?        Ssl  01:28   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         628  0.0  1.8  33076 17812 ?        Ss   01:28   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+systemd+     555  0.0  1.3  26336 13404 ?        Ss   01:28   0:00 /lib/systemd/systemd-resolved
+root           1  0.9  1.3 101980 13096 ?        Ss   01:27   0:12 /sbin/init
+root         345  0.0  1.2  47812 12528 ?        S<s  01:27   0:01 /lib/systemd/systemd-journald
+root        1668  0.0  1.0  16928 10616 ?        Ss   01:32   0:00 sshd: vagrant [priv]
+
+-------------------- iostat --------------------
+Linux 5.15.0-179-generic (ubuntu-jammy) 	06/12/26 	_x86_64_	(1 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           3.40    0.39   10.57    6.93    0.00   78.72
+
+Device             tps    kB_read/s    kB_wrtn/s    kB_dscd/s    kB_read    kB_wrtn    kB_dscd
+loop0             0.20         1.84         0.00         0.00       2330          0          0
+loop1             0.05         0.88         0.00         0.00       1115          0          0
+loop2             1.20        53.54         0.00         0.00      67943          0          0
+loop3             0.01         0.01         0.00         0.00         14          0          0
+sda              17.42       445.98       594.38         0.00     565952     754284          0
+sdb               0.28         2.50         0.00         0.00       3174          0          0
+
+
+
+-------------------- sar CPU --------------------
+Linux 5.15.0-179-generic (ubuntu-jammy) 	06/12/26 	_x86_64_	(1 CPU)
+
+01:48:37        CPU     %user     %nice   %system   %iowait    %steal     %idle
+01:48:38        all      0.00      0.00      0.00      0.00      0.00    100.00
+01:48:39        all      0.00      0.00      2.44      0.00      0.00     97.56
+01:48:40        all      0.00      0.00      1.19      0.00      0.00     98.81
+Average:        all      0.00      0.00      1.17      0.00      0.00     98.83
+
+-------------------- journaux récents --------------------
+-- No entries --
+

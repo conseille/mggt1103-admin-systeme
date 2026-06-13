@@ -1,0 +1,12 @@
+Corrections Lynis appliquées — TP2
+Date : Fri Jun 12 12:17:40 UTC 2026
+
+[1] Correction : installation de fail2ban
+Objectif : limiter les tentatives d'authentification répétées.
+
+[2] Correction : installation de apt-listbugs et apt-listchanges
+Objectif : afficher les bogues critiques et les changements importants avant les installations APT.
+
+[3] Correction : UMASK renforcé à 027
+Objectif : rendre les permissions par défaut plus restrictives.
+UMASK		027

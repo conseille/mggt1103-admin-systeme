@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+cd "$(dirname "$0")" || exit 1
+./Bureau-MUPINI-KABWE-ALBERT-MGGT1103/03-laboratoire-automatisation/01-presentboard/presentboard.sh
