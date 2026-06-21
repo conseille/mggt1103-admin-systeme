@@ -76,6 +76,8 @@ Cette structure me permet de garder un dépôt propre, lisible et professionnel.
 
 Elle facilite la consultation par le professeur, car les travaux pratiques sont séparés des outils d’automatisation et des outils de présentation.
 
-## Remarque
+## Conclusion
 
-Les fichiers temporaires, les brouillons et les fichiers générés automatiquement ne doivent pas être mélangés avec les rendus officiels.
+Cette organisation permet de présenter les travaux du cours MGGT1103 de manière claire, propre et professionnelle.
+
+Le professeur peut consulter facilement les travaux pratiques, les rapports, les captures, les résultats et les outils complémentaires liés au cours.
