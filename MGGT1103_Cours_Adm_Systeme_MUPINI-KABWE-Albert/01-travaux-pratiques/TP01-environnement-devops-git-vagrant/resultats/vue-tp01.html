@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue TP01 - MGGT1103</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --soft: #f9fafb;
+      --card: #ffffff;
+      --accent: #2563eb;
+      --good: #15803d;
+      --warn: #b45309;
+      --bad: #b91c1c;
+      --shadow: rgba(15, 23, 42, 0.08);
+    }
+
+    body {
+      margin: 0;
+      background: #f3f4f6;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 28px auto;
+      padding: 0 20px 40px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #111827, #1d4ed8);
+      color: white;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 14px 30px var(--shadow);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    .hero p {
+      margin: 8px 0 0;
+      opacity: 0.92;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 8px 20px var(--shadow);
+    }
+
+    .card small {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .card strong {
+      font-size: 26px;
+    }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      margin-top: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px var(--shadow);
+    }
+
+    .section h2 {
+      margin: 0;
+      padding: 14px 18px;
+      background: var(--soft);
+      border-bottom: 1px solid var(--line);
+      font-size: 20px;
+    }
+
+    .body {
+      padding: 18px;
+    }
+
+    .progress {
+      height: 20px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      background: linear-gradient(90deg, #15803d, #22c55e);
+      color: white;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .tree {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      font-family: Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .search {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      text-align: left;
+      background: var(--soft);
+      padding: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    code {
+      background: #f3f4f6;
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-family: Consolas, monospace;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .idea {
+      border-left: 5px solid var(--accent);
+      background: #eff6ff;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .hero, .card, .section {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <h1>MGGT1103 — Vue graphique du TP01</h1>
+    <p>MUPINI KABWE ALBERT — albertmupini21@gmail.com</p>
+    <p>Contrôle visuel du TP01 généré depuis WSL Ubuntu — 19/06/2026 00:01:36</p>
+  </div>
+
+  <div class="grid">
+    <div class="card"><small>Captures</small><strong>5</strong></div>
+    <div class="card"><small>Rapport</small><strong>1</strong></div>
+    <div class="card"><small>Résultats</small><strong>1</strong></div>
+    <div class="card"><small>Rendu final</small><strong>2</strong></div>
+    <div class="card"><small>Scripts</small><strong>5</strong></div>
+  </div>
+
+  <div class="section">
+    <h2>Indice local de vérification</h2>
+    <div class="body">
+      <div class="progress">
+        <div class="bar" style="width: 100%;">100%</div>
+      </div>
+      <p>Score : <strong>6/6</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Structure réelle du TP01</h2>
+    <div class="body">
+      <div class="tree">
+/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant
+├── captures
+│   ├── capture VS-code.png
+│   ├── free -h.png
+│   ├── resultat.png
+│   ├── ubuntu-serveur.png
+│   └── uname-a.png
+├── rapport
+│   └── rapport-seance1.md
+├── rendu-final
+│   ├── README.md
+│   └── Vagrantfile
+├── resultats
+│   ├── verification-tp01.html
+│   └── vue-tp01.html
+└── scripts
+    ├── afficher-resume-tp1.sh
+    ├── maintenance
+    │   └── preparer-rendu-tp1.sh
+    ├── verifier-tp1-console.sh
+    ├── verifier-tp1-graphique.sh
+    └── verifier-tp1.sh
+
+6 directories, 15 files
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Fichiers du TP01</h2>
+    <div class="body">
+      <input class="search" id="search" onkeyup="filterRows()" placeholder="Rechercher un fichier, une capture, un script...">
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Nom</th>
+          <th>Droits</th>
+          <th>Taille</th>
+          <th>Modification</th>
+          <th>Chemin</th>
+          <th>Action</th>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Capture</span></td>
+          <td>capture VS-code.png</td>
+          <td><code>-rw-r--r--</code></td>
+          <td>192K</td>
+          <td>2026-06-13 15:08:55</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/capture VS-code.png</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/capture%20VS-code.png" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Capture</span></td>
+          <td>free -h.png</td>
+          <td><code>-rw-r--r--</code></td>
+          <td>16K</td>
+          <td>2026-06-13 15:08:55</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/free -h.png</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/free%20-h.png" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Capture</span></td>
+          <td>resultat.png</td>
+          <td><code>-rw-r--r--</code></td>
+          <td>72K</td>
+          <td>2026-06-13 15:08:55</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/resultat.png</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/resultat.png" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Capture</span></td>
+          <td>ubuntu-serveur.png</td>
+          <td><code>-rw-r--r--</code></td>
+          <td>124K</td>
+          <td>2026-06-13 15:08:55</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/ubuntu-serveur.png</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/ubuntu-serveur.png" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Capture</span></td>
+          <td>uname-a.png</td>
+          <td><code>-rw-r--r--</code></td>
+          <td>16K</td>
+          <td>2026-06-13 15:08:55</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/uname-a.png</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/uname-a.png" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Markdown</span></td>
+          <td>rapport-seance1.md</td>
+          <td><code>-rw-r--r--</code></td>
+          <td>8.0K</td>
+          <td>2026-06-10 03:29:52</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rapport/rapport-seance1.md</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rapport/rapport-seance1.md" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Markdown</span></td>
+          <td>README.md</td>
+          <td><code>-rw-r--r--</code></td>
+          <td>4.0K</td>
+          <td>2026-06-10 03:31:17</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/README.md</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/README.md" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Fichier</span></td>
+          <td>Vagrantfile</td>
+          <td><code>-rwxr-xr-x</code></td>
+          <td>4.0K</td>
+          <td>2026-06-10 11:33:58</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/Vagrantfile</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/Vagrantfile" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">HTML</span></td>
+          <td>verification-tp01.html</td>
+          <td><code>-rw-r--r--</code></td>
+          <td>20K</td>
+          <td>2026-06-18 23:48:32</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/verification-tp01.html</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/verification-tp01.html" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">HTML</span></td>
+          <td>vue-tp01.html</td>
+          <td><code>-rw-r--r--</code></td>
+          <td>12K</td>
+          <td>2026-06-19 00:01:36</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/vue-tp01.html</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/vue-tp01.html" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Bash</span></td>
+          <td>afficher-resume-tp1.sh</td>
+          <td><code>-rwxr-xr-x</code></td>
+          <td>4.0K</td>
+          <td>2026-06-12 02:22:49</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/afficher-resume-tp1.sh</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/afficher-resume-tp1.sh" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Bash</span></td>
+          <td>preparer-rendu-tp1.sh</td>
+          <td><code>-rwxr-xr-x</code></td>
+          <td>4.0K</td>
+          <td>2026-06-12 02:22:49</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/maintenance/preparer-rendu-tp1.sh</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/maintenance/preparer-rendu-tp1.sh" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Bash</span></td>
+          <td>verifier-tp1-console.sh</td>
+          <td><code>-rwxr-xr-x</code></td>
+          <td>8.0K</td>
+          <td>2026-06-18 23:56:24</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-console.sh</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-console.sh" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Bash</span></td>
+          <td>verifier-tp1-graphique.sh</td>
+          <td><code>-rwxr-xr-x</code></td>
+          <td>12K</td>
+          <td>2026-06-18 23:56:24</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-graphique.sh</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-graphique.sh" target="_blank">Ouvrir</a></td>
+        </tr>
+        <tr class="row">
+          <td><span class="badge">Bash</span></td>
+          <td>verifier-tp1.sh</td>
+          <td><code>-rwxr-xr-x</code></td>
+          <td>4.0K</td>
+          <td>2026-06-18 23:56:24</td>
+          <td><code>Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1.sh</code></td>
+          <td><a href="file://///wsl.localhost/Ubuntu-22.04/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1.sh" target="_blank">Ouvrir</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Analyse intelligente locale</h2>
+    <div class="body">
+<div class="idea">README.md est présent dans le rendu-final.</div>
+<div class="idea">Vagrantfile est présent dans le rendu-final.</div>
+<div class="idea">Le rapport TP01 est présent.</div>
+<div class="idea">Les captures du TP01 sont disponibles.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function filterRows() {
+    const value = document.getElementById("search").value.toLowerCase();
+    document.querySelectorAll(".row").forEach(function(row) {
+      row.style.display = row.textContent.toLowerCase().includes(value) ? "" : "none";
+    });
+  }
+</script>
+</body>
+</html>
