@@ -1,0 +1,31 @@
+[0m[1mlocal_file.dns_config: Refreshing state... [id=337557238d30ced8bb00f562aedb6bfebe71f9fd][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+
+Terraform will perform the following actions:
+
+[1m  # local_file.dns_config[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "local_file" "dns_config" {
+      [33m~[0m[0m content              = <<-EOT [31m# forces replacement[0m[0m
+          [31m-[0m[0m nameserver 192.168.56.200
+          [32m+[0m[0m nameserver 10.10.10.10
+            nameserver 8.8.8.8
+        EOT
+      [33m~[0m[0m content_base64sha256 = "2EcL0OKeuhzwhZH04Jpjv+XU7XTLseQkAEWJgfw2pVY=" -> (known after apply)
+      [33m~[0m[0m content_base64sha512 = "cCRBbenNOv49hCbD3sne4RHbxp09SZEGl1mTZTK8FZnB9Z6raptBzoM8zOAVKBc8CepzgVkK53+EqxquEI+W8g==" -> (known after apply)
+      [33m~[0m[0m content_md5          = "2e93131a67e248b91e61af6bde5a2123" -> (known after apply)
+      [33m~[0m[0m content_sha1         = "337557238d30ced8bb00f562aedb6bfebe71f9fd" -> (known after apply)
+      [33m~[0m[0m content_sha256       = "d8470bd0e29eba1cf08591f4e09a63bfe5d4ed74cbb1e42400458981fc36a556" -> (known after apply)
+      [33m~[0m[0m content_sha512       = "7024416de9cd3afe3d8426c3dec9dee111dbc69d3d4991069759936532bc1599c1f59eab6a9b41ce833ccce01528173c09ea7381590ae77f84ab1aae108f96f2" -> (known after apply)
+      [33m~[0m[0m id                   = "337557238d30ced8bb00f562aedb6bfebe71f9fd" -> (known after apply)
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m1 to add, 0 to change, 1 to destroy.
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
