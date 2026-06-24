@@ -1,3 +1,32 @@
 #!/usr/bin/env bash
-cd "$(dirname "$0")" || exit 1
-./Bureau-MUPINI-KABWE-ALBERT-MGGT1103/03-laboratoire-automatisation/01-presentboard/presentboard.sh
+set -euo pipefail
+
+cd ~/MGGT1103/SEANCE1-git-vagrant
+
+BASE="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert"
+PB_DIR="$BASE/03-outils-de-presentation/presentboard"
+PORT=8765
+PID_FILE="/tmp/presentboard-mggt1103.pid"
+LOG_FILE="/tmp/presentboard-mggt1103.log"
+
+if ! command -v php >/dev/null 2>&1; then
+  echo "PHP n'est pas installé."
+  echo "Installe PHP avec : sudo apt install php php-cli -y"
+  exit 1
+fi
+
+if [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
+  kill "$(cat "$PID_FILE")" 2>/dev/null || true
+fi
+
+nohup php -S "127.0.0.1:$PORT" -t "$PB_DIR/public" > "$LOG_FILE" 2>&1 &
+echo $! > "$PID_FILE"
+
+sleep 1
+
+URL="http://127.0.0.1:$PORT"
+
+echo "PresentBoard lancé : $URL"
+echo "Journal serveur : $LOG_FILE"
+
+cmd.exe /C start "" "$URL" >/dev/null 2>&1 || true

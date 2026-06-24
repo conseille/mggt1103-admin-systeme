@@ -1,0 +1,1002 @@
+<?php
+declare(strict_types=1);
+
+$pbDir = dirname(__DIR__);
+$courseRoot = realpath($pbDir . '/../..');
+$repoRoot = $courseRoot ? realpath($courseRoot . '/..') : false;
+
+if (!$courseRoot || !$repoRoot) {
+    http_response_code(500);
+    die('Erreur : racine du projet introuvable.');
+}
+
+$configPath = $pbDir . '/data/config.json';
+$config = is_file($configPath) ? json_decode((string)file_get_contents($configPath), true) : [];
+if (!is_array($config)) $config = [];
+
+$ignored = $config['ignored_folders'] ?? ['.git', '.terraform', 'node_modules', '__pycache__'];
+if (!is_array($ignored)) $ignored = [];
+
+function h(mixed $v): string { return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
+
+function pb_inside(string $path, string $root): bool {
+    $real = realpath($path);
+    $rootReal = realpath($root);
+    return is_string($real) && is_string($rootReal) && str_starts_with($real, $rootReal);
+}
+
+function pb_rel(string $path, string $root): string {
+    $real = realpath($path);
+    $rootReal = realpath($root);
+    if (!is_string($real) || !is_string($rootReal)) return '';
+    return trim(str_replace('\\', '/', substr($real, strlen($rootReal))), '/');
+}
+
+function pb_ignored(string $path, array $ignored): bool {
+    foreach (explode(DIRECTORY_SEPARATOR, $path) as $part) {
+        if (in_array($part, $ignored, true)) return true;
+    }
+
+    $name = basename($path);
+
+    return $name === '.gitkeep'
+        || str_ends_with($name, ':Zone.Identifier')
+        || str_ends_with($name, '.tmp')
+        || str_ends_with($name, '.bak')
+        || str_ends_with($name, '~');
+}
+
+function pb_type(string $path): string {
+    if (is_dir($path)) return 'Dossier';
+
+    $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+
+    return match ($ext) {
+        'md' => 'Markdown',
+        'txt' => 'Texte',
+        'png', 'jpg', 'jpeg', 'webp' => 'Image',
+        'sh' => 'Script Bash',
+        'ps1' => 'Script PowerShell',
+        'py' => 'Script Python',
+        'tf' => 'Terraform',
+        'docx' => 'Rapport Word',
+        'pdf' => 'PDF',
+        'html' => 'Page HTML',
+        'json' => 'JSON',
+        'css' => 'CSS',
+        'js' => 'JavaScript',
+        default => strtoupper($ext ?: 'Fichier')
+    };
+}
+
+function pb_icon(string $path): string {
+    if (is_dir($path)) return '📁';
+
+    $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+
+    return match ($ext) {
+        'md', 'txt' => '📄',
+        'png', 'jpg', 'jpeg', 'webp' => '🖼️',
+        'sh', 'ps1', 'py' => '⚙️',
+        'tf' => '🏗️',
+        'docx', 'pdf' => '📝',
+        'html' => '🌐',
+        'json' => '🔧',
+        default => '📌'
+    };
+}
+
+function pb_file_url(string $path, string $repoRoot): string {
+    return '?file=' . urlencode(pb_rel($path, $repoRoot));
+}
+
+function pb_file_count(string $dir, array $ignored): int {
+    if (!is_dir($dir)) return 0;
+
+    $count = 0;
+
+    $it = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS)
+    );
+
+    foreach ($it as $item) {
+        $p = $item->getPathname();
+
+        if ($item->isFile() && !pb_ignored($p, $ignored)) {
+            $count++;
+        }
+    }
+
+    return $count;
+}
+
+function pb_items(string $dir, string $repoRoot, array $ignored): array {
+    if (!is_dir($dir)) return [];
+
+    $items = [];
+
+    foreach (scandir($dir) ?: [] as $name) {
+        if ($name === '.' || $name === '..') continue;
+
+        $path = $dir . '/' . $name;
+
+        if (pb_ignored($path, $ignored)) continue;
+
+        $items[] = [
+            'name' => $name,
+            'path' => $path,
+            'rel' => pb_rel($path, $repoRoot),
+            'type' => pb_type($path),
+            'icon' => pb_icon($path),
+            'is_dir' => is_dir($path),
+            'is_script' => preg_match('/\.(sh|ps1|py)$/i', $path) === 1,
+            'modified' => date('Y-m-d H:i', filemtime($path)),
+            'url' => pb_file_url($path, $repoRoot)
+        ];
+    }
+
+    usort($items, function ($a, $b) {
+        if ($a['is_dir'] !== $b['is_dir']) return $a['is_dir'] ? -1 : 1;
+        return strcasecmp($a['name'], $b['name']);
+    });
+
+    return $items;
+}
+
+function pb_detect_tps(string $courseRoot): array {
+    $tpRoot = $courseRoot . '/01-travaux-pratiques';
+
+    if (!is_dir($tpRoot)) return [];
+
+    $tps = [];
+
+    foreach (glob($tpRoot . '/TP*', GLOB_ONLYDIR) ?: [] as $tp) {
+        $tps[] = [
+            'name' => basename($tp),
+            'title' => str_replace(['-', '_'], ' ', basename($tp)),
+            'path' => $tp
+        ];
+    }
+
+    usort($tps, fn($a, $b) => strcasecmp($a['name'], $b['name']));
+
+    return $tps;
+}
+
+function pb_sections(string $tpPath, string $repoRoot, array $ignored): array {
+    $expected = [
+        'Rapport' => ['rapport', 'rapports'],
+        'Captures' => ['captures', 'capture'],
+        'Résultats' => ['resultats', 'résultats'],
+        'Scripts' => ['scripts'],
+        'Rendu final' => ['rendu-final', 'rendu_final', 'rendu']
+    ];
+
+    $sections = [];
+
+    foreach ($expected as $label => $aliases) {
+        $found = null;
+
+        foreach ($aliases as $alias) {
+            $candidate = $tpPath . '/' . $alias;
+
+            if (is_dir($candidate)) {
+                $found = $candidate;
+                break;
+            }
+        }
+
+        $count = $found ? pb_file_count($found, $ignored) : 0;
+
+        $sections[] = [
+            'label' => $label,
+            'path' => $found,
+            'exists' => $found !== null,
+            'count' => $count,
+            'items' => $found ? pb_items($found, $repoRoot, $ignored) : []
+        ];
+    }
+
+    return $sections;
+}
+
+function pb_tp_status(string $tpPath, array $sections, array $ignored): string {
+    if (pb_file_count($tpPath, $ignored) === 0) return 'Non commencé';
+
+    $map = [];
+
+    foreach ($sections as $s) {
+        $map[$s['label']] = $s['count'];
+    }
+
+    $rapport = ($map['Rapport'] ?? 0) > 0;
+    $captures = ($map['Captures'] ?? 0) > 0;
+    $resultats = ($map['Résultats'] ?? 0) > 0;
+    $rendu = ($map['Rendu final'] ?? 0) > 0;
+
+    if ($rapport && $captures && $resultats && $rendu) return 'Complet';
+    if ($rapport && ($captures || $resultats || $rendu)) return 'À vérifier';
+
+    return 'Incomplet';
+}
+
+function pb_status_class(string $status): string {
+    return match ($status) {
+        'Complet' => 'ok',
+        'À vérifier' => 'warn',
+        'Incomplet' => 'err',
+        'Non commencé' => 'neutral',
+        default => 'neutral'
+    };
+}
+
+function pb_tree(string $dir, string $repoRoot, array $ignored, int $depth = 0, int $max = 4): string {
+    if (!is_dir($dir) || $depth > $max) return '';
+
+    $items = [];
+
+    foreach (scandir($dir) ?: [] as $name) {
+        if ($name === '.' || $name === '..') continue;
+
+        $path = $dir . '/' . $name;
+
+        if (pb_ignored($path, $ignored)) continue;
+
+        $items[] = $path;
+    }
+
+    usort($items, function ($a, $b) {
+        if (is_dir($a) !== is_dir($b)) return is_dir($a) ? -1 : 1;
+        return strcasecmp(basename($a), basename($b));
+    });
+
+    $html = '<ul class="tree">';
+
+    foreach ($items as $path) {
+        $html .= '<li>';
+
+        if (is_dir($path)) {
+            $html .= '<a href="?p=explorateur&dir=' . urlencode(pb_rel($path, $repoRoot)) . '">📁 ' . h(basename($path)) . '</a>';
+            $html .= pb_tree($path, $repoRoot, $ignored, $depth + 1, $max);
+        } else {
+            $html .= '<a href="' . h(pb_file_url($path, $repoRoot)) . '">' . h(pb_icon($path)) . ' ' . h(basename($path)) . '</a>';
+        }
+
+        $html .= '</li>';
+    }
+
+    $html .= '</ul>';
+
+    return $html;
+}
+
+function pb_git(string $repoRoot, string $cmd): string {
+    return shell_exec('cd ' . escapeshellarg($repoRoot) . ' && ' . $cmd . ' 2>&1') ?? '';
+}
+
+function pb_manifest(string $pbDir): array {
+    $file = $pbDir . '/automation/manifest.json';
+
+    if (!is_file($file)) return [];
+
+    $data = json_decode((string)file_get_contents($file), true);
+
+    return is_array($data) ? ($data['scripts'] ?? []) : [];
+}
+
+function pb_save_log(string $pbDir, string $id, string $content): string {
+    $dir = $pbDir . '/automation/logs';
+
+    if (!is_dir($dir)) mkdir($dir, 0777, true);
+
+    $file = $dir . '/execution-' . preg_replace('/[^a-zA-Z0-9_-]/', '-', $id) . '-' . date('Ymd-His') . '.log';
+
+    file_put_contents($file, $content);
+
+    return $file;
+}
+
+if (isset($_GET['file'])) {
+    $target = realpath($repoRoot . '/' . $_GET['file']);
+
+    if (!$target || !pb_inside($target, $repoRoot)) {
+        http_response_code(403);
+        die('Accès refusé.');
+    }
+
+    if (is_dir($target)) {
+        $_GET['p'] = 'explorateur';
+        $_GET['dir'] = pb_rel($target, $repoRoot);
+    } else {
+        $ext = strtolower(pathinfo($target, PATHINFO_EXTENSION));
+
+        $types = [
+            'png' => 'image/png',
+            'jpg' => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'webp' => 'image/webp',
+            'pdf' => 'application/pdf',
+            'html' => 'text/html',
+            'md' => 'text/plain',
+            'txt' => 'text/plain',
+            'sh' => 'text/plain',
+            'ps1' => 'text/plain',
+            'py' => 'text/plain',
+            'tf' => 'text/plain',
+            'json' => 'application/json',
+            'css' => 'text/css',
+            'js' => 'application/javascript'
+        ];
+
+        header('Content-Type: ' . ($types[$ext] ?? 'application/octet-stream'));
+        readfile($target);
+        exit;
+    }
+}
+
+$manifest = pb_manifest($pbDir);
+$tps = pb_detect_tps($courseRoot);
+$hasGit = is_dir($repoRoot . '/.git');
+$page = $_GET['p'] ?? 'accueil';
+$message = '';
+$executionOutput = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $action = $_POST['action'] ?? '';
+
+    if ($action === 'run-script') {
+        $scriptId = $_POST['script_id'] ?? '';
+        $script = null;
+
+        foreach ($manifest as $s) {
+            if (($s['id'] ?? '') === $scriptId) {
+                $script = $s;
+                break;
+            }
+        }
+
+        if (!$script) {
+            $message = 'Script non autorisé.';
+        } else {
+            $scriptPath = realpath($pbDir . '/' . $script['script']);
+            $allowed = realpath($pbDir . '/automation/scripts');
+
+            if (!$scriptPath || !$allowed || !pb_inside($scriptPath, $allowed)) {
+                $message = 'Script bloqué : chemin non autorisé.';
+            } else {
+                $executionOutput = shell_exec('cd ' . escapeshellarg($repoRoot) . ' && bash ' . escapeshellarg($scriptPath) . ' 2>&1') ?? '';
+                $log = pb_save_log($pbDir, $scriptId, $executionOutput);
+                $message = 'Exécution terminée. Journal créé : ' . pb_rel($log, $repoRoot);
+            }
+        }
+    }
+
+    if ($action === 'open-vscode') {
+        $target = realpath($repoRoot . '/' . ($_POST['path'] ?? ''));
+
+        if ($target && pb_inside($target, $repoRoot)) {
+            shell_exec('code ' . escapeshellarg($target) . ' >/dev/null 2>&1 &');
+            $message = 'Ouverture demandée dans VS Code.';
+        }
+    }
+
+    if ($action === 'open-wsl') {
+        shell_exec('cmd.exe /C start "" wsl.exe --cd ' . escapeshellarg($repoRoot) . ' >/dev/null 2>&1 &');
+        $message = 'Ouverture WSL demandée.';
+    }
+}
+
+$nav = [
+    'accueil' => ['Accueil', '🏠'],
+    'travaux' => ['Travaux pratiques', '📚'],
+    'controle' => ['Contrôle des résultats', '✅'],
+    'explorateur' => ['Explorateur de fichiers', '🗂️'],
+    'laboratoire' => ['Laboratoire', '🧪'],
+    'outils' => ['Outils de présentation', '🎛️'],
+    'parametres' => ['Paramètres', '🔧'],
+    'compte' => ['Compte', '👤']
+];
+
+function nav_active(string $page, string $key): string {
+    if ($page === $key) return 'active';
+    if ($page === 'tp-detail' && $key === 'travaux') return 'active';
+    if ($page === 'execution' && $key === 'laboratoire') return 'active';
+    if ($page === 'rapport' && $key === 'controle') return 'active';
+    return '';
+}
+
+function topbar(string $title): void {
+    echo '<div class="topbar">';
+    echo '<div class="top-left"><a class="mini-btn" href="javascript:goBack()">← Retour</a></div>';
+    echo '<h1>' . h($title) . '</h1>';
+    echo '<div class="top-actions"><a class="mini-btn" href="?p=accueil">🏠 Accueil</a><button class="mini-btn red" onclick="exitApp()">Sortir</button></div>';
+    echo '</div>';
+}
+
+function status_label(int $count, string $okWord = 'Présent'): string {
+    return $count > 0 ? $okWord : 'Absent/Vide';
+}
+?>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>PresentBoard MGGT1103</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/assets/css/app.css?v=40">
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="brand">
+        <div class="logo">PB</div>
+        <div>
+            <strong>PresentBoard</strong>
+            <small>MGGT1103</small>
+        </div>
+    </div>
+
+    <nav>
+        <?php foreach ($nav as $key => $item): ?>
+            <a class="<?= h(nav_active($page, $key)) ?>" href="?p=<?= h($key) ?>">
+                <span><?= h($item[1]) ?></span>
+                <?= h($item[0]) ?>
+            </a>
+        <?php endforeach; ?>
+    </nav>
+
+    <div class="user-box">
+        <strong><?= h($config['student_name'] ?? 'MUPINI KABWE Albert') ?></strong>
+        <small>Étudiant · En ligne</small>
+        <form method="post">
+            <input type="hidden" name="action" value="open-wsl">
+            <button class="wsl-btn">Ouvrir WSL</button>
+        </form>
+    </div>
+</aside>
+
+<main class="content">
+
+<?php if ($message): ?>
+    <div class="message"><?= h($message) ?></div>
+<?php endif; ?>
+
+<?php if ($page === 'accueil'): ?>
+    <?php topbar('1. Accueil — Tableau de bord'); ?>
+
+    <section class="home-hero">
+        <div>
+            <p class="small-title">Bienvenue sur</p>
+            <h2>PresentBoard MGGT1103</h2>
+            <p><strong>Cours :</strong> <?= h($config['course_name'] ?? 'MGGT1103 — Administration Système, Cloud-Native et DevOps') ?></p>
+            <p><strong>Étudiant :</strong> <?= h($config['student_name'] ?? 'MUPINI KABWE Albert') ?></p>
+
+            <div class="objective">
+                <strong>Objectif de PresentBoard</strong>
+                <p>
+                    Présenter, organiser, explorer et vérifier les travaux réalisés dans le cadre du cours.
+                    L’application analyse automatiquement le projet, classe les contenus et fournit des preuves fiables
+                    pour faciliter la vérification.
+                </p>
+            </div>
+        </div>
+        <div class="hero-image">🛡️</div>
+    </section>
+
+    <section class="quick-grid">
+        <article class="card action-card">
+            <div class="icon">📚</div>
+            <strong>Travaux pratiques</strong>
+            <p>Voir et gérer les TP.</p>
+            <span class="arrow">→</span>
+        </article>
+
+        <article class="card action-card">
+            <div class="icon">✅</div>
+            <strong>Lancer une vérification</strong>
+            <p>Contrôler les résultats.</p>
+            <span class="arrow">→</span>
+        </article>
+
+        <article class="card action-card">
+            <div class="icon">🗂️</div>
+            <strong>Explorer les fichiers</strong>
+            <p>Parcourir le projet.</p>
+            <span class="arrow">→</span>
+        </article>
+
+        <article class="card action-card">
+            <div class="icon">🎛️</div>
+            <strong>Outils de présentation</strong>
+            <p>Tableaux de bord et rapports.</p>
+            <span class="arrow">→</span>
+        </article>
+    </section>
+
+    <div class="notice">PresentBoard s’adapte automatiquement à votre projet. Tous les menus et contenus sont dynamiques.</div>
+
+<?php elseif ($page === 'travaux'): ?>
+    <?php topbar('2. Travaux pratiques'); ?>
+
+    <section class="tp-selector-page">
+        <div class="tp-selector-hero">
+            <div>
+                <p class="small-title">Sélection dynamique</p>
+                <h2>Choisir un travail pratique</h2>
+                <p>
+                    Sélectionnez un TP dans le menu ci-dessous. PresentBoard affiche ensuite son statut,
+                    son chemin réel et les sections disponibles. Les fichiers ne sont pas éparpillés sur la page.
+                </p>
+            </div>
+            <div class="tp-selector-icon">📚</div>
+        </div>
+
+        <div class="tp-selector-card">
+            <label for="tpSearch">Rechercher un TP</label>
+            <input id="tpSearch" class="search" type="search" placeholder="Exemple : git, vagrant, hardening, terraform...">
+
+            <label for="tpSelect">Travail pratique</label>
+            <select id="tpSelect" class="big-select">
+                <option value="">Sélectionner un TP...</option>
+
+                <?php foreach ($tps as $tp): ?>
+                    <?php
+                    $sections = pb_sections($tp['path'], $repoRoot, $ignored);
+                    $status = pb_tp_status($tp['path'], $sections, $ignored);
+
+                    $parts = [];
+                    foreach ($sections as $s) {
+                        if ($s['count'] > 0) {
+                            $parts[] = $s['label'] . ' : ' . $s['count'];
+                        }
+                    }
+
+                    $contentSummary = $parts ? implode(' | ', $parts) : 'Aucun contenu réel détecté';
+                    ?>
+                    <option
+                        value="?p=tp-detail&tp=<?= urlencode(pb_rel($tp['path'], $repoRoot)) ?>"
+                        data-title="<?= h($tp['title']) ?>"
+                        data-search="<?= h(strtolower($tp['title'] . ' ' . pb_rel($tp['path'], $repoRoot))) ?>"
+                        data-status="<?= h($status) ?>"
+                        data-status-class="<?= h(pb_status_class($status)) ?>"
+                        data-path="<?= h(pb_rel($tp['path'], $repoRoot)) ?>"
+                        data-content="<?= h($contentSummary) ?>"
+                    >
+                        <?= h($tp['title']) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+
+            <button class="btn tp-open-btn" id="openSelectedTp" type="button">
+                Ouvrir le TP sélectionné
+            </button>
+        </div>
+
+        <div class="tp-preview-card" id="tpPreview">
+            <div class="empty-state">
+                Aucun TP sélectionné. Choisissez un travail pratique dans le menu.
+            </div>
+        </div>
+
+        <details class="tp-tree-details">
+            <summary>Afficher la structure réelle des travaux pratiques</summary>
+            <div class="tree-wrapper">
+                <?= pb_tree($courseRoot . '/01-travaux-pratiques', $repoRoot, $ignored, 0, 2) ?>
+            </div>
+        </details>
+    </section>
+
+<?php elseif ($page === 'tp-detail'): ?>
+    <?php
+    $tpRel = $_GET['tp'] ?? '';
+    $tpPath = realpath($repoRoot . '/' . $tpRel);
+    topbar('3. Détail d’un TP');
+    ?>
+
+    <?php if (!$tpPath || !pb_inside($tpPath, $repoRoot)): ?>
+        <section class="panel">TP introuvable.</section>
+    <?php else: ?>
+        <?php
+        $sections = pb_sections($tpPath, $repoRoot, $ignored);
+        $status = pb_tp_status($tpPath, $sections, $ignored);
+        $map = [];
+        foreach ($sections as $s) $map[$s['label']] = $s;
+        ?>
+
+        <section class="panel tp-header">
+            <div>
+                <p class="breadcrumb">Travaux pratiques › <?= h(basename($tpPath)) ?></p>
+                <h2><?= h(str_replace(['-', '_'], ' ', basename($tpPath))) ?></h2>
+                <p>
+                    <strong>Thème :</strong> <?= h(str_replace(['TP01','TP02','TP03','TP04','TP05','TP06','TP07','TP08','TP09','TP10','TP11','-','_'], ' ', basename($tpPath))) ?>
+                    <strong class="space">Chemin :</strong> <?= h(pb_rel($tpPath, $repoRoot)) ?>
+                </p>
+            </div>
+            <span class="badge <?= h(pb_status_class($status)) ?>"><?= h($status) ?></span>
+        </section>
+
+        <div class="tabs">
+            <?php foreach ($sections as $s): ?>
+                <a href="#<?= h($s['label']) ?>"><?= h($s['label']) ?></a>
+            <?php endforeach; ?>
+            <a href="#verification">Vérification</a>
+        </div>
+
+        <section class="layout two-cols">
+            <div class="panel">
+                <h3>Contenu attendu</h3>
+                <?php foreach ($sections as $s): ?>
+                    <p class="checkline <?= $s['count'] > 0 ? 'good' : 'bad' ?>">
+                        <?= $s['count'] > 0 ? '✅' : '❌' ?> <?= h($s['label']) ?> : <?= (int)$s['count'] ?> élément(s)
+                    </p>
+                <?php endforeach; ?>
+            </div>
+
+            <div class="panel">
+                <h3>Informations</h3>
+                <p><strong>Statut :</strong> <?= h($status) ?></p>
+                <p><strong>Rapport :</strong> <?= status_label($map['Rapport']['count'] ?? 0) ?></p>
+                <p><strong>Captures :</strong> <?= status_label($map['Captures']['count'] ?? 0, 'Présentes') ?></p>
+                <p><strong>Résultats :</strong> <?= status_label($map['Résultats']['count'] ?? 0, 'Présents') ?></p>
+                <p><strong>Scripts :</strong> <?= status_label($map['Scripts']['count'] ?? 0, 'Présents') ?></p>
+                <p><strong>Rendu final :</strong> <?= status_label($map['Rendu final']['count'] ?? 0) ?></p>
+            </div>
+        </section>
+
+        <section class="actions big-actions">
+            <a class="btn" href="<?= h(pb_file_url($tpPath, $repoRoot)) ?>">Ouvrir le dossier</a>
+            <a class="btn" href="?p=controle&tp=<?= urlencode(pb_rel($tpPath, $repoRoot)) ?>">Lancer la vérification</a>
+            <a class="btn" href="?p=rapport&tp=<?= urlencode(pb_rel($tpPath, $repoRoot)) ?>">Voir les preuves</a>
+        </section>
+    <?php endif; ?>
+
+<?php elseif ($page === 'controle'): ?>
+    <?php topbar('4. Contrôle des résultats'); ?>
+
+    <section class="layout">
+        <aside class="subnav">
+            <a class="active" href="#git">Preuves Git</a>
+            <a href="#structure">Structure du TP</a>
+            <a href="#fichiers">Fichiers importants</a>
+            <a href="#erreurs">Erreurs détectées</a>
+            <a href="?p=rapport">Rapport de vérification</a>
+        </aside>
+
+        <div>
+            <section class="panel" id="git">
+                <h2>Preuves Git — Dépôt global</h2>
+                <?php $gitStatus = trim(pb_git($repoRoot, 'git status --short')); ?>
+
+                <div class="git-cards">
+                    <div><small>Dernier commit</small><strong><?= h(trim(pb_git($repoRoot, 'git log --oneline -1'))) ?></strong></div>
+                    <div><small>Branche actuelle</small><strong><?= h(trim(pb_git($repoRoot, 'git branch --show-current'))) ?></strong></div>
+                    <div><small>Remote</small><strong><?= h(trim(pb_git($repoRoot, 'git remote get-url origin'))) ?></strong></div>
+                    <div><small>État du dépôt</small><strong><?= $gitStatus === '' ? 'Propre' : 'À vérifier' ?></strong></div>
+                </div>
+
+                <div class="tabs">
+                    <a class="active" href="#">État du dépôt</a>
+                    <a href="#">Commits récents</a>
+                    <a href="#">Fichiers suivis</a>
+                    <a href="#">Fichiers non suivis</a>
+                    <a href="#">Remote</a>
+                </div>
+
+                <pre><?= h($gitStatus ?: 'Aucune modification locale détectée.') ?></pre>
+            </section>
+
+            <section class="panel" id="structure">
+                <h2>Structure du travail</h2>
+
+                <table class="files-table">
+                    <tr>
+                        <th>TP</th>
+                        <th>Rapport</th>
+                        <th>Captures</th>
+                        <th>Résultats</th>
+                        <th>Scripts</th>
+                        <th>Rendu final</th>
+                        <th>Statut</th>
+                    </tr>
+
+                    <?php foreach ($tps as $tp): ?>
+                        <?php
+                        $secs = pb_sections($tp['path'], $repoRoot, $ignored);
+                        $status = pb_tp_status($tp['path'], $secs, $ignored);
+                        $m = [];
+                        foreach ($secs as $s) $m[$s['label']] = $s['count'];
+                        ?>
+                        <tr>
+                            <td><?= h($tp['name']) ?></td>
+                            <td><?= status_label($m['Rapport'] ?? 0) ?></td>
+                            <td><?= status_label($m['Captures'] ?? 0, 'Présentes') ?></td>
+                            <td><?= status_label($m['Résultats'] ?? 0, 'Présents') ?></td>
+                            <td><?= status_label($m['Scripts'] ?? 0, 'Présents') ?></td>
+                            <td><?= status_label($m['Rendu final'] ?? 0) ?></td>
+                            <td><span class="badge <?= h(pb_status_class($status)) ?>"><?= h($status) ?></span></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </section>
+
+            <section class="panel" id="erreurs">
+                <h2>Conclusion dynamique</h2>
+                <p class="dynamic-conclusion">
+                    <?= $gitStatus === ''
+                        ? 'Le dépôt Git est propre. Vérifiez maintenant les sections de chaque TP avant la présentation.'
+                        : 'Des fichiers modifiés ou non suivis existent. Il faut les contrôler avant la présentation.' ?>
+                </p>
+            </section>
+        </div>
+    </section>
+
+<?php elseif ($page === 'explorateur'): ?>
+    <?php
+    topbar('5. Explorateur de fichiers');
+    $defaultDir = pb_rel($courseRoot, $repoRoot);
+    $currentRel = $_GET['dir'] ?? $defaultDir;
+    $currentDir = realpath($repoRoot . '/' . $currentRel);
+
+    if (!$currentDir || !pb_inside($currentDir, $repoRoot) || !is_dir($currentDir)) {
+        $currentDir = $courseRoot;
+    }
+
+    $items = pb_items($currentDir, $repoRoot, $ignored);
+    ?>
+
+    <section class="layout explorer-layout">
+        <aside class="subnav tree-box">
+            <h3><?= h(basename($courseRoot)) ?></h3>
+            <?= pb_tree($courseRoot, $repoRoot, $ignored, 0, 4) ?>
+        </aside>
+
+        <div>
+            <div class="search-row">
+                <input class="search" placeholder="Rechercher un fichier...">
+                <select><option>Tous les types</option></select>
+            </div>
+
+            <table class="files-table">
+                <tr>
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Modifié le</th>
+                    <th>Actions</th>
+                </tr>
+
+                <?php foreach ($items as $item): ?>
+                    <tr>
+                        <td><?= h($item['icon']) ?> <?= h($item['name']) ?></td>
+                        <td><?= h($item['type']) ?></td>
+                        <td><?= h($item['modified']) ?></td>
+                        <td class="row-actions">
+                            <a class="small-btn" href="<?= h($item['url']) ?>">👁️</a>
+
+                            <form method="post">
+                                <input type="hidden" name="action" value="open-vscode">
+                                <input type="hidden" name="path" value="<?= h($item['rel']) ?>">
+                                <button class="small-btn">VS Code</button>
+                            </form>
+
+                            <?php if ($item['is_script']): ?>
+                                <a class="small-btn red" href="?p=execution&script=<?= urlencode($item['rel']) ?>">Exécuter</a>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </section>
+
+<?php elseif ($page === 'laboratoire'): ?>
+    <?php topbar('6. Laboratoire'); ?>
+
+    <section class="grid">
+        <?php
+        $grouped = [];
+        foreach ($manifest as $s) $grouped[$s['categorie'] ?? 'Autres'][] = $s;
+        ?>
+
+        <?php foreach ($grouped as $cat => $scripts): ?>
+            <article class="panel lab-panel">
+                <h2><?= h($cat) ?></h2>
+
+                <?php foreach ($scripts as $s): ?>
+                    <div class="script-row">
+                        <div>
+                            <strong><?= h($s['nom']) ?></strong>
+                            <p><?= h($s['description']) ?></p>
+                        </div>
+                        <a class="btn" href="?p=execution&manifest=<?= urlencode($s['id']) ?>">Préparer</a>
+                    </div>
+                <?php endforeach; ?>
+            </article>
+        <?php endforeach; ?>
+    </section>
+
+<?php elseif ($page === 'execution'): ?>
+    <?php
+    topbar('6. Exécution d’un script — Avertissement');
+    $scriptId = $_GET['manifest'] ?? '';
+    $script = null;
+    foreach ($manifest as $s) if (($s['id'] ?? '') === $scriptId) $script = $s;
+    ?>
+
+    <section class="layout two-cols">
+        <div class="panel warning-box">
+            <p><a href="?p=explorateur">← Retour à l’explorateur</a></p>
+            <h2>Exécuter un script</h2>
+
+            <?php if ($script): ?>
+                <p><strong>Script :</strong> <?= h($script['script']) ?></p>
+            <?php endif; ?>
+
+            <div class="warning-card">
+                <h3>⚠️ Attention !</h3>
+                <p>
+                    Vous êtes sur le point d’exécuter un script. Un script peut lire le projet,
+                    afficher l’état Git ou générer un journal. Vérifiez le contenu avant de continuer.
+                </p>
+            </div>
+
+            <div class="actions">
+                <a class="btn light" href="?p=laboratoire">Annuler</a>
+
+                <?php if ($script): ?>
+                    <a class="btn light" href="<?= h(pb_file_url($pbDir . '/' . $script['script'], $repoRoot)) ?>">Voir le script</a>
+
+                    <form method="post" onsubmit="return confirmExecution('<?= h($script['nom']) ?>')">
+                        <input type="hidden" name="action" value="run-script">
+                        <input type="hidden" name="script_id" value="<?= h($script['id']) ?>">
+                        <button class="btn red">Exécuter quand même</button>
+                    </form>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h3>Environnement sélectionné</h3>
+            <p><strong>WSL — Ubuntu 22.04</strong></p>
+            <p>Répertoire de travail :</p>
+            <p class="path"><?= h($repoRoot) ?></p>
+            <p>Permission : lecture contrôlée</p>
+        </div>
+    </section>
+
+    <?php if ($executionOutput): ?>
+        <section class="panel">
+            <h2>Résultat de l’exécution</h2>
+            <pre><?= h($executionOutput) ?></pre>
+        </section>
+    <?php endif; ?>
+
+<?php elseif ($page === 'outils'): ?>
+    <?php
+    topbar('7. Outils de présentation');
+    $tools = pb_items($courseRoot . '/03-outils-de-presentation', $repoRoot, $ignored);
+    ?>
+
+    <section class="grid">
+        <?php foreach ($tools as $tool): ?>
+            <article class="card">
+                <h2><?= h($tool['icon']) ?> <?= h($tool['name']) ?></h2>
+                <p><?= h($tool['type']) ?></p>
+
+                <div class="actions">
+                    <a class="btn" href="<?= h($tool['url']) ?>">Ouvrir</a>
+                    <?php if ($tool['is_dir']): ?>
+                        <a class="btn light" href="?p=explorateur&dir=<?= urlencode($tool['rel']) ?>">Voir le dossier</a>
+                    <?php endif; ?>
+                </div>
+            </article>
+        <?php endforeach; ?>
+    </section>
+
+<?php elseif ($page === 'rapport'): ?>
+    <?php topbar('7. Rapport de vérification'); ?>
+    <?php $gitStatus = trim(pb_git($repoRoot, 'git status --short')); ?>
+
+    <section class="layout">
+        <aside class="subnav">
+            <a class="active">Résumé</a>
+            <a>Par TP</a>
+            <a>Erreurs détectées</a>
+            <a>Preuves Git</a>
+            <a>Recommandations</a>
+            <a>Exporter</a>
+        </aside>
+
+        <div class="panel">
+            <h2>Résumé de la vérification</h2>
+
+            <div class="info-grid">
+                <div class="info-box"><small>Structure</small><strong>À contrôler</strong></div>
+                <div class="info-box"><small>Git</small><strong><?= $gitStatus === '' ? 'Conforme' : 'À vérifier' ?></strong></div>
+                <div class="info-box"><small>Scripts</small><strong>Contrôlés</strong></div>
+            </div>
+
+            <h3>Conclusion dynamique</h3>
+            <p class="dynamic-conclusion">
+                <?= $gitStatus === ''
+                    ? 'Le projet est globalement organisé. Les preuves sont disponibles dans les sections des TP.'
+                    : 'Le projet contient des modifications ou fichiers non suivis. Une vérification est nécessaire avant présentation.' ?>
+            </p>
+        </div>
+    </section>
+
+<?php elseif ($page === 'parametres'): ?>
+    <?php topbar('8. Paramètres'); ?>
+
+    <section class="layout">
+        <aside class="subnav">
+            <a class="active">Général</a>
+            <a>Projet</a>
+            <a>Vérifications</a>
+            <a>Affichage</a>
+            <a>Dossiers ignorés</a>
+            <a>Sauvegarde</a>
+        </aside>
+
+        <div class="panel">
+            <h2>Paramètres généraux</h2>
+
+            <table class="settings-table">
+                <tr><th>Nom de l’étudiant</th><td><?= h($config['student_name'] ?? '') ?></td></tr>
+                <tr><th>Nom du cours</th><td><?= h($config['course_name'] ?? '') ?></td></tr>
+                <tr><th>Nom du professeur</th><td><?= h($config['teacher_name'] ?: 'À définir') ?></td></tr>
+                <tr><th>Chemin du projet</th><td><?= h($repoRoot) ?></td></tr>
+                <tr><th>Thème</th><td>Bleu et blanc</td></tr>
+                <tr><th>Mode</th><td>Clair</td></tr>
+            </table>
+
+            <div class="actions">
+                <button class="btn">Enregistrer</button>
+                <button class="btn light">Réinitialiser</button>
+                <button class="btn light">Tester la configuration</button>
+            </div>
+        </div>
+    </section>
+
+<?php elseif ($page === 'compte'): ?>
+    <?php topbar('9. Compte utilisateur'); ?>
+
+    <section class="layout">
+        <aside class="subnav">
+            <a class="active">Mon profil</a>
+            <a>Changer le mot de passe</a>
+            <a>Gestion des comptes</a>
+            <a>Rôles et permissions</a>
+        </aside>
+
+        <div class="panel">
+            <h2>Mon profil</h2>
+
+            <table class="settings-table">
+                <tr><th>Nom d’utilisateur</th><td>albert</td></tr>
+                <tr><th>Email local</th><td>albert@local</td></tr>
+                <tr><th>Rôle</th><td>Étudiant</td></tr>
+                <tr><th>Statut</th><td><span class="badge ok">Actif</span></td></tr>
+            </table>
+        </div>
+
+        <div class="panel">
+            <h2>Informations sur les rôles</h2>
+            <p><strong>Étudiant :</strong> peut organiser, vérifier et présenter ses travaux.</p>
+            <p><strong>Professeur :</strong> peut consulter, vérifier et valider les travaux.</p>
+            <p><strong>Administrateur local :</strong> peut gérer les paramètres et les utilisateurs.</p>
+        </div>
+    </section>
+<?php endif; ?>
+
+<footer class="footer">
+    <span>Application 100% locale</span>
+    <span>Données sécurisées</span>
+    <span>Aucune connexion Internet requise</span>
+    <span>PresentBoard MGGT1103 v1.0.0</span>
+</footer>
+
+</main>
+
+<script src="/assets/js/app.js?v=40"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "scripts": [
+    {
+      "id": "verify-structure-wsl",
+      "categorie": "Structure",
+      "nom": "Vérifier la structure du projet",
+      "environnement": "WSL",
+      "script": "automation/scripts/verify-structure-wsl.sh",
+      "risque": "lecture seule",
+      "description": "Vérifie les dossiers principaux, l’arborescence et les anciennes structures."
+    },
+    {
+      "id": "verify-git",
+      "categorie": "Git",
+      "nom": "Vérifier le dépôt Git",
+      "environnement": "WSL",
+      "script": "automation/scripts/verify-git.sh",
+      "risque": "lecture seule",
+      "description": "Affiche la branche, le remote, les commits, l’état Git et les fichiers non suivis."
+    },
+    {
+      "id": "verify-tp-content",
+      "categorie": "Travaux pratiques",
+      "nom": "Vérifier le contenu des TP",
+      "environnement": "WSL",
+      "script": "automation/scripts/verify-tp-content.sh",
+      "risque": "lecture seule",
+      "description": "Vérifie les rapports, captures, résultats, scripts et rendus finaux de chaque TP."
+    },
+    {
+      "id": "verify-sensitive-files",
+      "categorie": "Sécurité",
+      "nom": "Détecter les fichiers sensibles",
+      "environnement": "WSL",
+      "script": "automation/scripts/verify-sensitive-files.sh",
+      "risque": "lecture seule",
+      "description": "Recherche les fichiers sensibles, temporaires ou mal placés."
+    },
+    {
+      "id": "verify-wsl-environment",
+      "categorie": "Environnement",
+      "nom": "Vérifier l’environnement WSL",
+      "environnement": "WSL",
+      "script": "automation/scripts/verify-wsl-environment.sh",
+      "risque": "lecture seule",
+      "description": "Vérifie WSL, les outils installés et le dossier de travail."
+    },
+    {
+      "id": "verify-vagrant",
+      "categorie": "Vagrant",
+      "nom": "Vérifier Vagrant",
+      "environnement": "WSL / Vagrant",
+      "script": "automation/scripts/verify-vagrant.sh",
+      "risque": "lecture seule",
+      "description": "Recherche les Vagrantfile et affiche l’état des machines Vagrant."
+    }
+  ]
+}

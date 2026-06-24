@@ -1,0 +1,10 @@
+{
+  "app_name": "PresentBoard MGGT1103",
+  "student_name": "MUPINI KABWE Albert",
+  "course_name": "MGGT1103 — Administration Système, Cloud-Native et DevOps",
+  "teacher_name": "",
+  "project_root": "../../../..",
+  "theme": "blue-white",
+  "default_environment": "WSL",
+  "ignored_folders": [".git", ".terraform", "node_modules", "__pycache__"]
+}

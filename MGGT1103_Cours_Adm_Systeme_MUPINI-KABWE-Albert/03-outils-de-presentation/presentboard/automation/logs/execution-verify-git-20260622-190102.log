@@ -1,0 +1,137 @@
+===== VERIFICATION GIT =====
+
+Dossier courant :
+/home/albert/MGGT1103/SEANCE1-git-vagrant
+
+Branche actuelle :
+master
+
+Remote :
+origin	git@github.com:conseille/mggt1103-admin-systeme.git (fetch)
+origin	git@github.com:conseille/mggt1103-admin-systeme.git (push)
+
+Derniers commits :
+753d53e (HEAD -> master, origin/master) docs: améliorer la conclusion du README principal
+26214d9 docs: ajouter le README principal du depot
+2679224 refactor: organiser proprement la structure du cours MGGT1103
+62f04dd refactor: simplifier la structure du depot MGGT1103
+55a10c6 feat: realiser le TP3 terraform iac
+d14a32e docs: finaliser le rendu du TP2 hardening linux
+ae487c8 feat: ajouter PresentBoard et organiser le laboratoire d'automatisation
+2429886 feat: ajout du bureau devops personnel et scripts MGGT1103
+32da597 feat: ajout du Vagrantfile et des captures de la VM
+15e2ed8 docs: ajout du rapport initial de la seance 1
+
+Etat du dépôt :
+ M MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/presentboard
+ D MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/presentboard.sh
+ D MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/resultats/presentboard-mggt1103.html
+ D MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/tp-explorer.sh
+?? MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/VERSION
+?? MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/automation/
+?? MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/data/
+?? MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/public/
+?? presentboard-mggt1103.html
+
+Fichiers suivis par Git :
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/capture VS-code.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/free -h.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/resultat.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/ubuntu-serveur.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/uname-a.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rapport/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rapport/rapport-seance1.md
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/README.md
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/Vagrantfile
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/tp01-explorer.html
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/verification-tp01.html
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/vue-tp01.html
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/afficher-resume-tp1.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/maintenance/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/maintenance/preparer-rendu-tp1.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-console.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-graphique.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59-bis.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/03-diagnostic-et-audit.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/04-diagnostic-performance.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/05-backup-system-teste.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/06-corrections-lynis.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/07-hardening-index-final-60.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/08-hardening-verification.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/audit lynis .png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rapport/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rapport/Rapport_TP2_MGGT1103_MUPINI_KABWE_ALBERT.docx
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rapport/rapport_hardening.md
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rendu-final/backup_system.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/audit-lynis.txt
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/corrections-lynis.txt
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/diagnostic-performance.txt
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/01-installer-outils-tp2.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/02-diagnostic-performance-tp2.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/03-audit-lynis-tp2.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/04-generer-backup-system.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/05-guide-hardening-sensible-tp2.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/06-verifier-resultats-tp2.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/verifier-structure-tp2.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/Terraform init.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/nameserver.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/variable terraform.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/version_terraform.png
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/rapport/rapport_seance3.md
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/rendu-final/.gitignore
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/rendu-final/main.tf
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/dns_config.txt
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/terraform-plan-variable.txt
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/terraform-plan.txt
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/terraform-version.txt
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP04-configuration-ansible/captures/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP04-configuration-ansible/rapport/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP04-configuration-ansible/rendu-final/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP04-configuration-ansible/resultats/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP04-configuration-ansible/scripts/maintenance/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP05-conteneurisation-docker-compose/captures/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP05-conteneurisation-docker-compose/rapport/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP05-conteneurisation-docker-compose/rendu-final/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP05-conteneurisation-docker-compose/resultats/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP05-conteneurisation-docker-compose/scripts/maintenance/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP06-orchestration-k3s-kubernetes/captures/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP06-orchestration-k3s-kubernetes/rapport/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP06-orchestration-k3s-kubernetes/rendu-final/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP06-orchestration-k3s-kubernetes/resultats/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP06-orchestration-k3s-kubernetes/scripts/maintenance/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP07-observabilite-prometheus-grafana-loki/captures/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP07-observabilite-prometheus-grafana-loki/rapport/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP07-observabilite-prometheus-grafana-loki/rendu-final/.gitkeep
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP07-observabilite-prometheus-grafana-loki/resultats/.gitkeep
+
+Fichiers non suivis :
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/VERSION
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/automation/logs/execution-verify-git-20260622-173942.log
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/automation/logs/execution-verify-project-wsl-20260622-173913.log
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/automation/logs/execution-verify-project-wsl-20260622-173932.log
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/automation/logs/execution-verify-project-wsl-20260622-173957.log
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/automation/logs/execution-verify-project-wsl-20260622-190040.log
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/automation/manifest.json
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/automation/scripts/verify-git.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/automation/scripts/verify-project-wsl.sh
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/data/config.json
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/data/course-profile.json
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/public/assets/css/app.css
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/public/assets/js/app.js
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/public/index.php
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/public/index.php.backup-avant-correction-strict-types
+MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/public/index.php.backup.20260622-183911
+presentboard-mggt1103.html
+
+Fichiers ignorés :

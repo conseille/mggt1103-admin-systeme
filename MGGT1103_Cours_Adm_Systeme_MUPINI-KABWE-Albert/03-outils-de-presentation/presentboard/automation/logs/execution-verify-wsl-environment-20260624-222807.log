@@ -1,0 +1,16 @@
+===== VERIFICATION ENVIRONNEMENT WSL =====
+
+Utilisateur : albert
+Machine     : DESKTOP-BT795Q3
+Dossier     : /home/albert/MGGT1103/SEANCE1-git-vagrant
+
+===== VERSION SYSTEME =====
+Linux DESKTOP-BT795Q3 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+
+===== OUTILS DISPONIBLES =====
+OK      git : git version 2.34.1
+OK      php : PHP 8.1.2-1ubuntu2.24 (cli) (built: May 25 2026 15:08:06) (NTS)
+OK      tree : tree v2.0.2 (c) 1996 - 2022 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro 
+ABSENT  vagrant
+OK      terraform : Terraform v1.15.5
+OK      code : Updating VS Code Server to version 6928394f91b684055b873eecb8bc281365131f1c

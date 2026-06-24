@@ -1,0 +1,95 @@
+===== VERIFICATION DU PROJET WSL =====
+
+Utilisateur : albert
+Machine : DESKTOP-BT795Q3
+Dossier : /home/albert/MGGT1103/SEANCE1-git-vagrant
+
+===== STRUCTURE PRINCIPALE =====
+.
+├── MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert
+│   ├── 01-travaux-pratiques
+│   │   ├── TP01-environnement-devops-git-vagrant
+│   │   ├── TP02-diagnostic-hardening-linux
+│   │   ├── TP03-infrastructure-as-code-terraform
+│   │   ├── TP04-configuration-ansible
+│   │   ├── TP05-conteneurisation-docker-compose
+│   │   ├── TP06-orchestration-k3s-kubernetes
+│   │   ├── TP07-observabilite-prometheus-grafana-loki
+│   │   ├── TP08-ci-cd-gitops
+│   │   ├── TP09-identite-keycloak-traefik
+│   │   ├── TP10-integration-hackathon
+│   │   └── TP11-devsecops-trivy-hadolint
+│   ├── 02-laboratoire-automatisation
+│   │   └── README.md
+│   └── 03-outils-de-presentation
+│       ├── README.md
+│       └── presentboard
+├── README.md
+└── presentboard-mggt1103.html
+
+16 directories, 4 files
+
+===== README RACINE =====
+OK README.md présent
+
+===== DOSSIERS TP DETECTES =====
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP04-configuration-ansible
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP05-conteneurisation-docker-compose
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP06-orchestration-k3s-kubernetes
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP07-observabilite-prometheus-grafana-loki
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP08-ci-cd-gitops
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP09-identite-keycloak-traefik
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP10-integration-hackathon
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP11-devsecops-trivy-hadolint
+
+===== RAPPORTS DETECTES =====
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rapport/rapport-seance1.md
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/README.md
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rapport/Rapport_TP2_MGGT1103_MUPINI_KABWE_ALBERT.docx
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rapport/rapport_hardening.md
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/rapport/rapport_seance3.md
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/02-laboratoire-automatisation/README.md
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/README.md
+./README.md
+
+===== CAPTURES DETECTEES =====
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/capture VS-code.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/free -h.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/resultat.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/ubuntu-serveur.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/uname-a.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59-bis.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/03-diagnostic-et-audit.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/04-diagnostic-performance.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/05-backup-system-teste.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/06-corrections-lynis.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/07-hardening-index-final-60.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/08-hardening-verification.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/audit lynis .png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/Terraform init.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/nameserver.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/variable terraform.png
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/version_terraform.png
+
+===== SCRIPTS DETECTES =====
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/afficher-resume-tp1.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/maintenance/preparer-rendu-tp1.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-console.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-graphique.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rendu-final/backup_system.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/01-installer-outils-tp2.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/02-diagnostic-performance-tp2.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/03-audit-lynis-tp2.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/04-generer-backup-system.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/05-guide-hardening-sensible-tp2.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/06-verifier-resultats-tp2.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/verifier-structure-tp2.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/automation/scripts/verify-git.sh
+./MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/automation/scripts/verify-project-wsl.sh
+
+===== ANCIENNES STRUCTURES A DETECTER =====

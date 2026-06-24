@@ -1,0 +1,30 @@
+{
+  "cours": "MGGT1103",
+  "themes": [
+    "Git",
+    "WSL2",
+    "Vagrant",
+    "VirtualBox",
+    "Diagnostic Linux",
+    "Hardening Linux",
+    "Lynis",
+    "Terraform",
+    "Infrastructure-as-Code",
+    "Ansible",
+    "Docker",
+    "Kubernetes",
+    "CI/CD",
+    "GitOps",
+    "Observabilité",
+    "DevSecOps"
+  ],
+  "sections_reconnues": [
+    "captures",
+    "rapport",
+    "rapports",
+    "rendu-final",
+    "resultats",
+    "résultats",
+    "scripts"
+  ]
+}

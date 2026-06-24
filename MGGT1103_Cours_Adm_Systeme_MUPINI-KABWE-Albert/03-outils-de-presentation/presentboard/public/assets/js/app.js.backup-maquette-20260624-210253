@@ -1,0 +1,40 @@
+function goBack() {
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.location.href = "?p=accueil";
+    }
+}
+
+function exitApp() {
+    if (confirm("Voulez-vous quitter l’interface PresentBoard ?")) {
+        window.location.href = "about:blank";
+    }
+}
+
+function confirmExecution(scriptName) {
+    return confirm(
+        "Attention : vous êtes sur le point d’exécuter un script dans WSL.\n\n" +
+        "Script : " + scriptName + "\n\n" +
+        "Ce script peut lire le projet, afficher l’état Git et générer un journal.\n" +
+        "L’exécution doit rester contrôlée.\n\n" +
+        "Voulez-vous continuer ?"
+    );
+}
+
+const searchTp = document.getElementById("searchTp");
+const statusFilter = document.getElementById("statusFilter");
+
+function filterTpCards() {
+    const q = searchTp ? searchTp.value.toLowerCase().trim() : "";
+    const status = statusFilter ? statusFilter.value : "";
+
+    document.querySelectorAll(".tp-card").forEach(card => {
+        const okSearch = card.dataset.search.includes(q);
+        const okStatus = !status || card.dataset.status === status;
+        card.style.display = okSearch && okStatus ? "" : "none";
+    });
+}
+
+if (searchTp) searchTp.addEventListener("input", filterTpCards);
+if (statusFilter) statusFilter.addEventListener("change", filterTpCards);

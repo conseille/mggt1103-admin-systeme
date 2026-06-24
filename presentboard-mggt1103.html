@@ -332,15 +332,15 @@
         </div>
         <div class="card">
           <div class="label">TP contenant des fichiers réels</div>
-          <div class="value">2</div>
+          <div class="value">3</div>
         </div>
         <div class="card">
           <div class="label">Scripts du laboratoire</div>
-          <div class="value">1</div>
+          <div class="value">0</div>
         </div>
         <div class="card">
           <div class="label">Changements Git en attente</div>
-          <div class="value">0</div>
+          <div class="value">3</div>
         </div>
       </div>
 
@@ -354,7 +354,7 @@
             <tr><td>Titulaire du cours</td><td><strong>Dr. Roméo NIBITANGA</strong></td></tr>
             <tr><td>Environnement</td><td>WSL Ubuntu</td></tr>
             <tr><td>Racine Git</td><td><span class="path">/home/albert/MGGT1103/SEANCE1-git-vagrant</span></td></tr>
-            <tr><td>Date de génération</td><td>18/06/2026 20:49:45</td></tr>
+            <tr><td>Date de génération</td><td>21/06/2026 19:23:57</td></tr>
           </table>
         </div>
       </div>
@@ -368,10 +368,8 @@
             Cette page présente l'organisation générale du projet. Elle sert à montrer la logique de classement du Bureau MGGT1103.
           </p>
           <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103
-├── 00-accueil
-│   └── README-bureau.md
-├── 02-travaux-pratiques
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert
+├── 01-travaux-pratiques
 │   ├── TP01-environnement-devops-git-vagrant
 │   ├── TP02-diagnostic-hardening-linux
 │   ├── TP03-infrastructure-as-code-terraform
@@ -383,32 +381,13 @@
 │   ├── TP09-identite-keycloak-traefik
 │   ├── TP10-integration-hackathon
 │   └── TP11-devsecops-trivy-hadolint
-├── 03-laboratoire-automatisation
-│   ├── 00-propositions-scripts
-│   └── 01-presentboard
-├── 04-infrastructure-virtualisation
-│   ├── machines-virtuelles
-│   ├── vagrant
-│   └── virtualbox
-├── 05-bibliotheque-technique
-│   ├── git-github
-│   ├── glossaire-devops
-│   ├── linux
-│   ├── powershell
-│   ├── securite-linux
-│   └── vagrant
-├── 08-versionnement-github
-│   ├── commits
-│   ├── depot-github
-│   ├── procedures
-│   └── scripts
-└── 09-suivi-personnel
-    ├── difficultes
-    ├── prochaines-actions
-    ├── progression
-    └── scripts-a-revoir
+├── 02-laboratoire-automatisation
+│   └── README.md
+└── 03-outils-de-presentation
+    ├── README.md
+    └── presentboard
 
-37 directories, 1 file
+15 directories, 2 files
           </div>
         </div>
       </div>
@@ -436,19 +415,19 @@
           </div>
           <div class="tp-panel active" id="TP01environnementdevopsgitvagrant">
             <h3>TP01-environnement-devops-git-vagrant</h3>
-            <p class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant</p>
+            <p class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant</p>
 
             <div class="folder-grid">
               <div class="folder-card"><strong>captures</strong><span>5 fichier(s)</span></div>
               <div class="folder-card"><strong>rapport</strong><span>1 fichier(s)</span></div>
-              <div class="folder-card"><strong>resultats</strong><span>0 fichier(s)</span></div>
+              <div class="folder-card"><strong>resultats</strong><span>3 fichier(s)</span></div>
               <div class="folder-card"><strong>rendu-final</strong><span>2 fichier(s)</span></div>
-              <div class="folder-card"><strong>scripts</strong><span>3 script(s)</span></div>
+              <div class="folder-card"><strong>scripts</strong><span>5 script(s)</span></div>
             </div>
 
             <h4>Structure du TP</h4>
             <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant
 ├── captures
 │   ├── capture VS-code.png
 │   ├── free -h.png
@@ -461,12 +440,17 @@
 │   ├── README.md
 │   └── Vagrantfile
 ├── resultats
+│   ├── tp01-explorer.html
+│   ├── verification-tp01.html
+│   └── vue-tp01.html
 └── scripts
     ├── afficher-resume-tp1.sh
     ├── maintenance
+    ├── verifier-tp1-console.sh
+    ├── verifier-tp1-graphique.sh
     └── verifier-tp1.sh
 
-6 directories, 10 files
+6 directories, 15 files
             </div>
 
             <h4>Fichiers du TP</h4>
@@ -488,8 +472,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>192K</td>
                 <td>2026-06-13 15:08:55</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/capture VS-code.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/capture%20VS-code.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/capture VS-code.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/capture%20VS-code.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -497,8 +481,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>16K</td>
                 <td>2026-06-13 15:08:55</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/free -h.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/free%20-h.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/free -h.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/free%20-h.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -506,8 +490,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>72K</td>
                 <td>2026-06-13 15:08:55</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/resultat.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/resultat.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/resultat.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/resultat.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -515,8 +499,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>124K</td>
                 <td>2026-06-13 15:08:55</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/ubuntu-serveur.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/ubuntu-serveur.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/ubuntu-serveur.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/ubuntu-serveur.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -524,8 +508,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>16K</td>
                 <td>2026-06-13 15:08:55</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/uname-a.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/uname-a.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/uname-a.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/captures/uname-a.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Markdown</span></td>
@@ -533,8 +517,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>8.0K</td>
                 <td>2026-06-10 03:29:52</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rapport/rapport-seance1.md</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rapport/rapport-seance1.md" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rapport/rapport-seance1.md</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rapport/rapport-seance1.md" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Markdown</span></td>
@@ -542,8 +526,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>4.0K</td>
                 <td>2026-06-10 03:31:17</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/README.md</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/README.md" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/README.md</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/README.md" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Fichier</span></td>
@@ -551,8 +535,35 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-10 11:33:58</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/Vagrantfile</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/Vagrantfile" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/Vagrantfile</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/rendu-final/Vagrantfile" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Page HTML</span></td>
+                <td>tp01-explorer.html</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>28K</td>
+                <td>2026-06-19 00:10:33</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/tp01-explorer.html</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/tp01-explorer.html" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Page HTML</span></td>
+                <td>verification-tp01.html</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>20K</td>
+                <td>2026-06-18 23:48:32</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/verification-tp01.html</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/verification-tp01.html" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Page HTML</span></td>
+                <td>vue-tp01.html</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>16K</td>
+                <td>2026-06-19 00:01:37</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/vue-tp01.html</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/resultats/vue-tp01.html" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Script Bash</span></td>
@@ -560,8 +571,8 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-12 02:22:49</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/afficher-resume-tp1.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/afficher-resume-tp1.sh" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/afficher-resume-tp1.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/afficher-resume-tp1.sh" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Script Bash</span></td>
@@ -569,35 +580,53 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-12 02:22:49</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/maintenance/preparer-rendu-tp1.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/maintenance/preparer-rendu-tp1.sh" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/maintenance/preparer-rendu-tp1.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/maintenance/preparer-rendu-tp1.sh" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Script Bash</span></td>
+                <td>verifier-tp1-console.sh</td>
+                <td><code>-rwxr-xr-x</code></td>
+                <td>8.0K</td>
+                <td>2026-06-18 23:56:24</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-console.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-console.sh" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Script Bash</span></td>
+                <td>verifier-tp1-graphique.sh</td>
+                <td><code>-rwxr-xr-x</code></td>
+                <td>20K</td>
+                <td>2026-06-19 00:09:18</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-graphique.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1-graphique.sh" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Script Bash</span></td>
                 <td>verifier-tp1.sh</td>
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
-                <td>2026-06-12 02:22:49</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1.sh" target="_blank">Ouvrir</a></td>
+                <td>2026-06-18 23:56:24</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP01-environnement-devops-git-vagrant/scripts/verifier-tp1.sh" target="_blank">Ouvrir</a></td>
               </tr>
             </table>
           </div>
           <div class="tp-panel " id="TP02diagnostichardeninglinux">
             <h3>TP02-diagnostic-hardening-linux</h3>
-            <p class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux</p>
+            <p class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux</p>
 
             <div class="folder-grid">
               <div class="folder-card"><strong>captures</strong><span>9 fichier(s)</span></div>
-              <div class="folder-card"><strong>rapport</strong><span>1 fichier(s)</span></div>
+              <div class="folder-card"><strong>rapport</strong><span>2 fichier(s)</span></div>
               <div class="folder-card"><strong>resultats</strong><span>3 fichier(s)</span></div>
               <div class="folder-card"><strong>rendu-final</strong><span>1 fichier(s)</span></div>
-              <div class="folder-card"><strong>scripts</strong><span>12 script(s)</span></div>
+              <div class="folder-card"><strong>scripts</strong><span>7 script(s)</span></div>
             </div>
 
             <h4>Structure du TP</h4>
             <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux
 ├── captures
 │   ├── 01-hardening-index-initial-59-bis.png
 │   ├── 01-hardening-index-initial-59.png
@@ -609,7 +638,8 @@
 │   ├── 08-hardening-verification.png
 │   └── audit lynis .png
 ├── rapport
-│   └── Rapport_TP2_MGGT1103_MUPINI_KABWE_ALBERT.docx
+│   ├── Rapport_TP2_MGGT1103_MUPINI_KABWE_ALBERT.docx
+│   └── rapport_hardening.md
 ├── rendu-final
 │   └── backup_system.sh
 ├── resultats
@@ -623,13 +653,9 @@
     ├── 04-generer-backup-system.sh
     ├── 05-guide-hardening-sensible-tp2.sh
     ├── 06-verifier-resultats-tp2.sh
-    ├── backup_system.sh
-    ├── maintenance
-    ├── organiser-captures-tp2.sh
-    ├── preparer-rendu-tp2.sh
     └── verifier-structure-tp2.sh
 
-6 directories, 24 files
+5 directories, 22 files
             </div>
 
             <h4>Fichiers du TP</h4>
@@ -651,8 +677,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>84K</td>
                 <td>2026-06-12 04:02:18</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59-bis.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59-bis.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59-bis.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59-bis.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -660,8 +686,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>20K</td>
                 <td>2026-06-12 14:02:30</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/01-hardening-index-initial-59.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -669,8 +695,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>20K</td>
                 <td>2026-06-12 14:08:33</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/03-diagnostic-et-audit.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/03-diagnostic-et-audit.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/03-diagnostic-et-audit.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/03-diagnostic-et-audit.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -678,8 +704,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>20K</td>
                 <td>2026-06-12 14:08:33</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/04-diagnostic-performance.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/04-diagnostic-performance.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/04-diagnostic-performance.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/04-diagnostic-performance.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -687,8 +713,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>72K</td>
                 <td>2026-06-12 14:11:59</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/05-backup-system-teste.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/05-backup-system-teste.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/05-backup-system-teste.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/05-backup-system-teste.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -696,8 +722,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>84K</td>
                 <td>2026-06-12 14:33:36</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/06-corrections-lynis.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/06-corrections-lynis.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/06-corrections-lynis.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/06-corrections-lynis.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -705,8 +731,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>80K</td>
                 <td>2026-06-12 16:27:06</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/07-hardening-index-final-60.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/07-hardening-index-final-60.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/07-hardening-index-final-60.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/07-hardening-index-final-60.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -714,8 +740,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>20K</td>
                 <td>2026-06-12 14:02:30</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/08-hardening-verification.png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/08-hardening-verification.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/08-hardening-verification.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/08-hardening-verification.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Capture</span></td>
@@ -723,8 +749,8 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>92K</td>
                 <td>2026-06-12 16:15:12</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/audit lynis .png</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/audit%20lynis%20.png" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/audit lynis .png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/captures/audit%20lynis%20.png" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Rapport Word</span></td>
@@ -732,8 +758,17 @@
                 <td><code>-rw-r--r--</code></td>
                 <td>56K</td>
                 <td>2026-06-13 13:40:56</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/rapport/Rapport_TP2_MGGT1103_MUPINI_KABWE_ALBERT.docx</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/rapport/Rapport_TP2_MGGT1103_MUPINI_KABWE_ALBERT.docx" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rapport/Rapport_TP2_MGGT1103_MUPINI_KABWE_ALBERT.docx</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rapport/Rapport_TP2_MGGT1103_MUPINI_KABWE_ALBERT.docx" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Markdown</span></td>
+                <td>rapport_hardening.md</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>4.0K</td>
+                <td>2026-06-20 20:54:54</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rapport/rapport_hardening.md</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rapport/rapport_hardening.md" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Script Bash</span></td>
@@ -741,8 +776,8 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-13 15:08:55</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/rendu-final/backup_system.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/rendu-final/backup_system.sh" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rendu-final/backup_system.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/rendu-final/backup_system.sh" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Résultat</span></td>
@@ -750,8 +785,8 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>36K</td>
                 <td>2026-06-13 15:08:55</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/audit-lynis.txt</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/audit-lynis.txt" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/audit-lynis.txt</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/audit-lynis.txt" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Résultat</span></td>
@@ -759,8 +794,8 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-13 15:08:55</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/corrections-lynis.txt</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/corrections-lynis.txt" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/corrections-lynis.txt</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/corrections-lynis.txt" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Résultat</span></td>
@@ -768,8 +803,8 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>8.0K</td>
                 <td>2026-06-13 15:08:55</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/diagnostic-performance.txt</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/diagnostic-performance.txt" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/diagnostic-performance.txt</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/resultats/diagnostic-performance.txt" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Script Bash</span></td>
@@ -777,8 +812,8 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-12 03:20:07</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/01-installer-outils-tp2.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/01-installer-outils-tp2.sh" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/01-installer-outils-tp2.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/01-installer-outils-tp2.sh" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Script Bash</span></td>
@@ -786,8 +821,8 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-12 03:20:07</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/02-diagnostic-performance-tp2.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/02-diagnostic-performance-tp2.sh" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/02-diagnostic-performance-tp2.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/02-diagnostic-performance-tp2.sh" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Script Bash</span></td>
@@ -795,8 +830,8 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-12 03:20:07</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/03-audit-lynis-tp2.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/03-audit-lynis-tp2.sh" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/03-audit-lynis-tp2.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/03-audit-lynis-tp2.sh" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Script Bash</span></td>
@@ -804,8 +839,8 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-12 03:20:07</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/04-generer-backup-system.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/04-generer-backup-system.sh" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/04-generer-backup-system.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/04-generer-backup-system.sh" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Script Bash</span></td>
@@ -813,8 +848,8 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-12 03:20:07</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/05-guide-hardening-sensible-tp2.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/05-guide-hardening-sensible-tp2.sh" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/05-guide-hardening-sensible-tp2.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/05-guide-hardening-sensible-tp2.sh" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Script Bash</span></td>
@@ -822,53 +857,8 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-12 03:20:07</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/06-verifier-resultats-tp2.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/06-verifier-resultats-tp2.sh" target="_blank">Ouvrir</a></td>
-              </tr>
-              <tr class="filter-row">
-                <td><span class="badge">Script Bash</span></td>
-                <td>backup_system.sh</td>
-                <td><code>-rwxr-xr-x</code></td>
-                <td>4.0K</td>
-                <td>2026-06-12 17:54:23</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/backup_system.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/backup_system.sh" target="_blank">Ouvrir</a></td>
-              </tr>
-              <tr class="filter-row">
-                <td><span class="badge">Script Bash</span></td>
-                <td>backup-avant-nettoyage-tp2.sh</td>
-                <td><code>-rwxr-xr-x</code></td>
-                <td>4.0K</td>
-                <td>2026-06-13 12:03:00</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/maintenance/backup-avant-nettoyage-tp2.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/maintenance/backup-avant-nettoyage-tp2.sh" target="_blank">Ouvrir</a></td>
-              </tr>
-              <tr class="filter-row">
-                <td><span class="badge">Script Bash</span></td>
-                <td>nettoyer-tp2.sh</td>
-                <td><code>-rwxr-xr-x</code></td>
-                <td>8.0K</td>
-                <td>2026-06-13 12:04:20</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/maintenance/nettoyer-tp2.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/maintenance/nettoyer-tp2.sh" target="_blank">Ouvrir</a></td>
-              </tr>
-              <tr class="filter-row">
-                <td><span class="badge">Script Bash</span></td>
-                <td>organiser-captures-tp2.sh</td>
-                <td><code>-rwxr-xr-x</code></td>
-                <td>4.0K</td>
-                <td>2026-06-13 11:30:41</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/organiser-captures-tp2.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/organiser-captures-tp2.sh" target="_blank">Ouvrir</a></td>
-              </tr>
-              <tr class="filter-row">
-                <td><span class="badge">Script Bash</span></td>
-                <td>preparer-rendu-tp2.sh</td>
-                <td><code>-rwxr-xr-x</code></td>
-                <td>4.0K</td>
-                <td>2026-06-12 03:20:07</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/preparer-rendu-tp2.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/preparer-rendu-tp2.sh" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/06-verifier-resultats-tp2.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/06-verifier-resultats-tp2.sh" target="_blank">Ouvrir</a></td>
               </tr>
               <tr class="filter-row">
                 <td><span class="badge">Script Bash</span></td>
@@ -876,34 +866,42 @@
                 <td><code>-rwxr-xr-x</code></td>
                 <td>4.0K</td>
                 <td>2026-06-13 11:21:39</td>
-                <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/verifier-structure-tp2.sh</td>
-                <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/verifier-structure-tp2.sh" target="_blank">Ouvrir</a></td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/verifier-structure-tp2.sh</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP02-diagnostic-hardening-linux/scripts/verifier-structure-tp2.sh" target="_blank">Ouvrir</a></td>
               </tr>
             </table>
           </div>
           <div class="tp-panel " id="TP03infrastructureascodeterraform">
             <h3>TP03-infrastructure-as-code-terraform</h3>
-            <p class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP03-infrastructure-as-code-terraform</p>
+            <p class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform</p>
 
             <div class="folder-grid">
-              <div class="folder-card"><strong>captures</strong><span>0 fichier(s)</span></div>
-              <div class="folder-card"><strong>rapport</strong><span>0 fichier(s)</span></div>
-              <div class="folder-card"><strong>resultats</strong><span>0 fichier(s)</span></div>
-              <div class="folder-card"><strong>rendu-final</strong><span>0 fichier(s)</span></div>
+              <div class="folder-card"><strong>captures</strong><span>4 fichier(s)</span></div>
+              <div class="folder-card"><strong>rapport</strong><span>1 fichier(s)</span></div>
+              <div class="folder-card"><strong>resultats</strong><span>4 fichier(s)</span></div>
+              <div class="folder-card"><strong>rendu-final</strong><span>2 fichier(s)</span></div>
               <div class="folder-card"><strong>scripts</strong><span>0 script(s)</span></div>
             </div>
 
             <h4>Structure du TP</h4>
             <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP03-infrastructure-as-code-terraform
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform
 ├── captures
+│   ├── Terraform init.png
+│   ├── nameserver.png
+│   ├── variable terraform.png
+│   └── version_terraform.png
 ├── rapport
+│   └── rapport_seance3.md
 ├── rendu-final
-├── resultats
-└── scripts
-    └── maintenance
+│   └── main.tf
+└── resultats
+    ├── dns_config.txt
+    ├── terraform-plan-variable.txt
+    ├── terraform-plan.txt
+    └── terraform-version.txt
 
-6 directories, 0 files
+4 directories, 10 files
             </div>
 
             <h4>Fichiers du TP</h4>
@@ -919,11 +917,110 @@
                 <th>Chemin</th>
                 <th>Action</th>
               </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Capture</span></td>
+                <td>Terraform init.png</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>88K</td>
+                <td>2026-06-21 14:56:49</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/Terraform init.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/Terraform%20init.png" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Capture</span></td>
+                <td>nameserver.png</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>36K</td>
+                <td>2026-06-21 15:13:12</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/nameserver.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/nameserver.png" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Capture</span></td>
+                <td>variable terraform.png</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>96K</td>
+                <td>2026-06-21 15:23:09</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/variable terraform.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/variable%20terraform.png" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Capture</span></td>
+                <td>version_terraform.png</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>16K</td>
+                <td>2026-06-21 14:04:03</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/version_terraform.png</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/captures/version_terraform.png" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Markdown</span></td>
+                <td>rapport_seance3.md</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>8.0K</td>
+                <td>2026-06-21 16:11:52</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/rapport/rapport_seance3.md</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/rapport/rapport_seance3.md" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Fichier</span></td>
+                <td>.gitignore</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>4.0K</td>
+                <td>2026-06-21 16:17:17</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/rendu-final/.gitignore</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/rendu-final/.gitignore" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Fichier</span></td>
+                <td>main.tf</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>4.0K</td>
+                <td>2026-06-21 14:06:48</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/rendu-final/main.tf</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/rendu-final/main.tf" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Résultat</span></td>
+                <td>dns_config.txt</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>4.0K</td>
+                <td>2026-06-21 15:33:43</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/dns_config.txt</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/dns_config.txt" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Résultat</span></td>
+                <td>terraform-plan-variable.txt</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>4.0K</td>
+                <td>2026-06-21 15:33:43</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/terraform-plan-variable.txt</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/terraform-plan-variable.txt" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Résultat</span></td>
+                <td>terraform-plan.txt</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>4.0K</td>
+                <td>2026-06-21 15:33:42</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/terraform-plan.txt</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/terraform-plan.txt" target="_blank">Ouvrir</a></td>
+              </tr>
+              <tr class="filter-row">
+                <td><span class="badge">Résultat</span></td>
+                <td>terraform-version.txt</td>
+                <td><code>-rw-r--r--</code></td>
+                <td>4.0K</td>
+                <td>2026-06-21 15:33:41</td>
+                <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/terraform-version.txt</td>
+                <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP03-infrastructure-as-code-terraform/resultats/terraform-version.txt" target="_blank">Ouvrir</a></td>
+              </tr>
             </table>
           </div>
           <div class="tp-panel " id="TP04configurationansible">
             <h3>TP04-configuration-ansible</h3>
-            <p class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP04-configuration-ansible</p>
+            <p class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP04-configuration-ansible</p>
 
             <div class="folder-grid">
               <div class="folder-card"><strong>captures</strong><span>0 fichier(s)</span></div>
@@ -935,7 +1032,7 @@
 
             <h4>Structure du TP</h4>
             <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP04-configuration-ansible
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP04-configuration-ansible
 ├── captures
 ├── rapport
 ├── rendu-final
@@ -963,7 +1060,7 @@
           </div>
           <div class="tp-panel " id="TP05conteneurisationdockercompose">
             <h3>TP05-conteneurisation-docker-compose</h3>
-            <p class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP05-conteneurisation-docker-compose</p>
+            <p class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP05-conteneurisation-docker-compose</p>
 
             <div class="folder-grid">
               <div class="folder-card"><strong>captures</strong><span>0 fichier(s)</span></div>
@@ -975,7 +1072,7 @@
 
             <h4>Structure du TP</h4>
             <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP05-conteneurisation-docker-compose
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP05-conteneurisation-docker-compose
 ├── captures
 ├── rapport
 ├── rendu-final
@@ -1003,7 +1100,7 @@
           </div>
           <div class="tp-panel " id="TP06orchestrationk3skubernetes">
             <h3>TP06-orchestration-k3s-kubernetes</h3>
-            <p class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP06-orchestration-k3s-kubernetes</p>
+            <p class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP06-orchestration-k3s-kubernetes</p>
 
             <div class="folder-grid">
               <div class="folder-card"><strong>captures</strong><span>0 fichier(s)</span></div>
@@ -1015,7 +1112,7 @@
 
             <h4>Structure du TP</h4>
             <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP06-orchestration-k3s-kubernetes
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP06-orchestration-k3s-kubernetes
 ├── captures
 ├── rapport
 ├── rendu-final
@@ -1043,7 +1140,7 @@
           </div>
           <div class="tp-panel " id="TP07observabiliteprometheusgrafanaloki">
             <h3>TP07-observabilite-prometheus-grafana-loki</h3>
-            <p class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP07-observabilite-prometheus-grafana-loki</p>
+            <p class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP07-observabilite-prometheus-grafana-loki</p>
 
             <div class="folder-grid">
               <div class="folder-card"><strong>captures</strong><span>0 fichier(s)</span></div>
@@ -1055,7 +1152,7 @@
 
             <h4>Structure du TP</h4>
             <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP07-observabilite-prometheus-grafana-loki
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP07-observabilite-prometheus-grafana-loki
 ├── captures
 ├── rapport
 ├── rendu-final
@@ -1083,7 +1180,7 @@
           </div>
           <div class="tp-panel " id="TP08cicdgitops">
             <h3>TP08-ci-cd-gitops</h3>
-            <p class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP08-ci-cd-gitops</p>
+            <p class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP08-ci-cd-gitops</p>
 
             <div class="folder-grid">
               <div class="folder-card"><strong>captures</strong><span>0 fichier(s)</span></div>
@@ -1095,7 +1192,7 @@
 
             <h4>Structure du TP</h4>
             <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP08-ci-cd-gitops
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP08-ci-cd-gitops
 ├── captures
 ├── rapport
 ├── rendu-final
@@ -1123,7 +1220,7 @@
           </div>
           <div class="tp-panel " id="TP09identitekeycloaktraefik">
             <h3>TP09-identite-keycloak-traefik</h3>
-            <p class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP09-identite-keycloak-traefik</p>
+            <p class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP09-identite-keycloak-traefik</p>
 
             <div class="folder-grid">
               <div class="folder-card"><strong>captures</strong><span>0 fichier(s)</span></div>
@@ -1135,7 +1232,7 @@
 
             <h4>Structure du TP</h4>
             <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP09-identite-keycloak-traefik
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP09-identite-keycloak-traefik
 ├── captures
 ├── rapport
 ├── rendu-final
@@ -1163,7 +1260,7 @@
           </div>
           <div class="tp-panel " id="TP10integrationhackathon">
             <h3>TP10-integration-hackathon</h3>
-            <p class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP10-integration-hackathon</p>
+            <p class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP10-integration-hackathon</p>
 
             <div class="folder-grid">
               <div class="folder-card"><strong>captures</strong><span>0 fichier(s)</span></div>
@@ -1175,7 +1272,7 @@
 
             <h4>Structure du TP</h4>
             <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP10-integration-hackathon
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP10-integration-hackathon
 ├── captures
 ├── rapport
 ├── rendu-final
@@ -1203,7 +1300,7 @@
           </div>
           <div class="tp-panel " id="TP11devsecopstrivyhadolint">
             <h3>TP11-devsecops-trivy-hadolint</h3>
-            <p class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP11-devsecops-trivy-hadolint</p>
+            <p class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP11-devsecops-trivy-hadolint</p>
 
             <div class="folder-grid">
               <div class="folder-card"><strong>captures</strong><span>0 fichier(s)</span></div>
@@ -1215,7 +1312,7 @@
 
             <h4>Structure du TP</h4>
             <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/02-travaux-pratiques/TP11-devsecops-trivy-hadolint
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/01-travaux-pratiques/TP11-devsecops-trivy-hadolint
 ├── captures
 ├── rapport
 ├── rendu-final
@@ -1255,14 +1352,10 @@
 
           <h3>Structure du laboratoire</h3>
           <div class="treebox">
-/home/albert/MGGT1103/SEANCE1-git-vagrant/Bureau-MUPINI-KABWE-ALBERT-MGGT1103/03-laboratoire-automatisation
-├── 00-propositions-scripts
-│   ├── proposition-scripts-automatisation.md
-│   └── proposition-scripts-tp2.md
-└── 01-presentboard
-    └── presentboard.sh
+/home/albert/MGGT1103/SEANCE1-git-vagrant/MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/02-laboratoire-automatisation
+└── README.md
 
-2 directories, 3 files
+0 directories, 1 file
           </div>
 
           <h3>Fichiers du laboratoire</h3>
@@ -1277,27 +1370,11 @@
             </tr>
             <tr>
               <td><span class="badge">Markdown</span></td>
-              <td>proposition-scripts-automatisation.md</td>
+              <td>README.md</td>
               <td><code>-rw-r--r--</code></td>
               <td>4.0K</td>
-              <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/03-laboratoire-automatisation/00-propositions-scripts/proposition-scripts-automatisation.md</td>
-              <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/03-laboratoire-automatisation/00-propositions-scripts/proposition-scripts-automatisation.md" target="_blank">Ouvrir</a></td>
-            </tr>
-            <tr>
-              <td><span class="badge">Markdown</span></td>
-              <td>proposition-scripts-tp2.md</td>
-              <td><code>-rw-r--r--</code></td>
-              <td>4.0K</td>
-              <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/03-laboratoire-automatisation/00-propositions-scripts/proposition-scripts-tp2.md</td>
-              <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/03-laboratoire-automatisation/00-propositions-scripts/proposition-scripts-tp2.md" target="_blank">Ouvrir</a></td>
-            </tr>
-            <tr>
-              <td><span class="badge">Script Bash</span></td>
-              <td>presentboard.sh</td>
-              <td><code>-rwxr-xr-x</code></td>
-              <td>24K</td>
-              <td class="path">Bureau-MUPINI-KABWE-ALBERT-MGGT1103/03-laboratoire-automatisation/01-presentboard/presentboard.sh</td>
-              <td><a href="Bureau-MUPINI-KABWE-ALBERT-MGGT1103/03-laboratoire-automatisation/01-presentboard/presentboard.sh" target="_blank">Ouvrir</a></td>
+              <td class="path">MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/02-laboratoire-automatisation/README.md</td>
+              <td><a href="MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/02-laboratoire-automatisation/README.md" target="_blank">Ouvrir</a></td>
             </tr>
           </table>
         </div>
@@ -1310,20 +1387,23 @@
         <div class="panel-body">
           <div class="cards">
             <div class="card"><div class="label">Branche</div><div class="value">master</div></div>
-            <div class="card"><div class="label">Commits</div><div class="value">4</div></div>
-            <div class="card"><div class="label">Fichiers modifiés</div><div class="value">0</div></div>
+            <div class="card"><div class="label">Commits</div><div class="value">10</div></div>
+            <div class="card"><div class="label">Fichiers modifiés</div><div class="value">3</div></div>
             <div class="card"><div class="label">Fichiers non suivis</div><div class="value">0</div></div>
           </div>
 
           <table>
             <tr><td>Nom Git</td><td><strong>MUPINI KABWE Albert</strong></td></tr>
             <tr><td>Email Git</td><td><strong>albertmupini21@gmail.com</strong></td></tr>
-            <tr><td>Remote GitHub</td><td><span class="path">https://github.com/conseille/mggt1103-admin-systeme.git</span></td></tr>
-            <tr><td>Dernier commit</td><td><span class="path">ae487c8 feat: ajouter PresentBoard et organiser le laboratoire d'automatisation</span></td></tr>
+            <tr><td>Remote GitHub</td><td><span class="path">git@github.com:conseille/mggt1103-admin-systeme.git</span></td></tr>
+            <tr><td>Dernier commit</td><td><span class="path">753d53e docs: améliorer la conclusion du README principal</span></td></tr>
           </table>
 
           <h3>Résultat de git status -sb</h3>
-          <div class="treebox">## master...origin/master [ahead 2]</div>
+          <div class="treebox">## master...origin/master
+ M MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/presentboard
+ M MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/presentboard.sh
+ D MGGT1103_Cours_Adm_Systeme_MUPINI-KABWE-Albert/03-outils-de-presentation/presentboard/resultats/presentboard-mggt1103.html</div>
         </div>
       </div>
     </section>
@@ -1334,7 +1414,7 @@
         <div class="panel-body">
           <table>
             <tr><td>Version</td><td><strong>PresentBoard v1.2</strong></td></tr>
-            <tr><td>Date de génération</td><td>18/06/2026 20:49:45</td></tr>
+            <tr><td>Date de génération</td><td>21/06/2026 19:23:57</td></tr>
             <tr><td>Objectif de cette version</td><td>Aligner l’interface avec la structure réelle du Bureau, afficher les TP par sélection, intégrer les droits Linux et améliorer la partie Git.</td></tr>
             <tr><td>Évolution continue</td><td>Le script peut évoluer selon les nouveaux TP et les besoins du cours MGGT1103.</td></tr>
           </table>
@@ -1346,8 +1426,9 @@
       <div class="panel">
         <h2>Avis et suggestions</h2>
         <div class="panel-body">
+<div class="suggestion">Git contient des changements en attente. Vérifier avant commit et push.</div>
 <div class="suggestion">Certains TP sont déjà structurés mais attendent encore les fichiers du guide ou du rendu.</div>
-<div class="suggestion">Le laboratoire contient un outil de présentation central. Les scripts spécifiques restent dans leurs TP.</div>
+<div class="suggestion">Le laboratoire ne contient aucun script. Ajouter au moins PresentBoard comme outil de présentation.</div>
         </div>
       </div>
     </section>
