@@ -21,13 +21,13 @@ mkdir -p "$APP_DIR"
 
 cp -r "$SOURCE_DIR/bin" "$APP_DIR/"
 cp -r "$SOURCE_DIR/scripts" "$APP_DIR/"
-cp -r "$SOURCE_DIR/lib" "$APP_DIR/"
+cp -r "$SOURCE_DIR/lib" "$APP_DIR/" 2>/dev/null || true
 cp -r "$SOURCE_DIR/docs" "$APP_DIR/" 2>/dev/null || true
 cp "$SOURCE_DIR/README.md" "$APP_DIR/README.md" 2>/dev/null || true
 
 chmod +x "$APP_DIR/bin/"*
-chmod +x "$APP_DIR/scripts/"*.sh
-chmod +x "$APP_DIR/lib/"*.sh
+chmod +x "$APP_DIR/scripts/"*.sh 2>/dev/null || true
+chmod +x "$APP_DIR/lib/"*.sh 2>/dev/null || true
 
 for launcher in "$APP_DIR/bin/"*; do
   tool="$(basename "$launcher")"
@@ -52,9 +52,8 @@ echo
 echo "Rechargez le terminal :"
 echo "source ~/.bashrc"
 echo
-echo "Commandes principales :"
+echo "Créer un nouveau projet :"
+echo "mggt-init"
+echo
+echo "Puis dans le projet :"
 echo "mggt-assistant"
-echo "mggt-doctor"
-echo "tpnav"
-echo "gitnav"
-echo "vagrantnav"

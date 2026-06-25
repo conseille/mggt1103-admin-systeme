@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 TOOL_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 export TOOL_HOME
-source "$TOOL_HOME/lib/mggt-detect.sh"
-mggt_prepare_environment
+
+if [ -f "$TOOL_HOME/lib/mggt-detect.sh" ] && [ "mggt-doctor" != "mggt-init" ]; then
+  source "$TOOL_HOME/lib/mggt-detect.sh"
+  mggt_prepare_environment
+fi
+
 bash "$TOOL_HOME/scripts/mggt-doctor.sh" "$@"

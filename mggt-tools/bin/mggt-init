@@ -2,9 +2,9 @@
 TOOL_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 export TOOL_HOME
 
-if [ -f "$TOOL_HOME/lib/mggt-detect.sh" ] && [ "gitnav" != "mggt-init" ]; then
+if [ -f "$TOOL_HOME/lib/mggt-detect.sh" ] && [ "mggt-init" != "mggt-init" ]; then
   source "$TOOL_HOME/lib/mggt-detect.sh"
   mggt_prepare_environment
 fi
 
-bash "$TOOL_HOME/scripts/gitnav.sh" "$@"
+bash "$TOOL_HOME/scripts/mggt-init.sh" "$@"
