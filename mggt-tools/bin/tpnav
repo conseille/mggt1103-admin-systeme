@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+TOOL_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$TOOL_HOME/lib/mggt-detect.sh"
+mggt_prepare_environment
+bash "$TOOL_HOME/scripts/tpnav.sh" "$@"
